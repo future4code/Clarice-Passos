@@ -48,7 +48,6 @@ console.log ("Olá!", "Meu nome é", nome, "e eu tenho", idade, "anos")
 console.log (typeof "nome", nome)
 console.log (typeof "idade", idade)
 console.log ("Olá", "Seu nome é", nome, "sua idade é", idade)
-*/
 
 const corRoupa = prompt ("Você está usando roupa azul?")
 console.log('Você está usando roupa azul? ', corRoupa)
@@ -58,4 +57,15 @@ console.log('Você está usando tênis preto? ', corTênis)
 
 const corCalça = prompt  ("Você está usando calça roxa?")
 console.log('Você está usando calça roxa? ', corCalça)
+*/
 
+let a = 10
+let b = 25
+let c
+
+c = a
+a = b
+
+ 
+console.log("O novo valor de a é", b) // O novo valor de a é 25
+console.log("O novo valor de b é", c) // O novo valor de b é 10
