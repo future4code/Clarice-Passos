@@ -20,11 +20,11 @@ undefined
 
 //array[i+1] = 19
 //console.log('e. ', array)
-// array not defined
+// [3, 19, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
 //const valor = array[i+6]
 //console.log**('f. ', valor)
-//array not defined
+//9
 
 
 //2. Leia o código abaixo com atenção 
@@ -80,7 +80,7 @@ let digiteIndice = Number(prompt ("Digite um número de 0 a dois"))
 
 //e) Remova da lista o item de índice que o usuário escolheu.
 
-listaDeTarefas.splice(digiteIndice,1)
+listaDeTarefas.splice(Number(digiteIndice), 1)
 
 //f) Imprima o array no console */
 console.log (listaDeTarefas)
