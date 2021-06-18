@@ -58,7 +58,7 @@ console.log (imprimeInformacoesUsuario)
 console.log ("Alice", 28, "alice@gmail.com") 
 
 
-// EXERCÍCIO 05
+/* // EXERCÍCIO 05
 function imprimeTresCoresFavoritas() {
   const cor1 = prompt ("Qual a sua cor favorita?")
   const cor2 = prompt ("Qual a sua segunda cor favorita?")
@@ -66,56 +66,84 @@ function imprimeTresCoresFavoritas() {
   const imprimeTresCoresFavoritas = [cor1, cor2, cor3]
   console.log (imprimeTresCoresFavoritas)
 }
-imprimeTresCoresFavoritas (azul, amarelo, vermelho)
+imprimeTresCoresFavoritas (azul, amarelo, vermelho) */
 
 
 // EXERCÍCIO 06
 function retornaStringEmMaiuscula(string) {
-  // implemente sua lógica aqui
-
+  const retornaStringEmMaiuscula = string.toUpperCase()
+return string.toUpperCase()
 }
+
+retornaStringEmMaiuscula (oi)
 
 // EXERCÍCIO 07
 function calculaIngressosEspetaculo(custo, valorIngresso) {
-  // implemente sua lógica aqui
+const calculaIngressosEspetaculo = (custo / valorIngresso)
+return (custo / valorIngresso)
 
 }
+calculaIngressosEspetaculo (3000,100)
 
 // EXERCÍCIO 08
-function checaStringsMesmoTamanho(string1, string2) {
-  // implemente sua lógica aqui
-
+function checaStringsMesmoTamanho(string1,string2) {
+  const tamanhoString1 = string1.length
+  const tamanhoString2 = string2.length
+  const checaStringsMesmoTamanho = tamanhoString1 === tamanhoString2
+  return (checaStringsMesmoTamanho)
 }
+
+checaStringsMesmoTamanho (ola,abc)
+
 
 // EXERCÍCIO 09
 function retornaPrimeiroElemento(array) {
-  // implemente sua lógica aqui
-
+const retornaPrimeiroElemento = array[0]
+return (retornaPrimeiroElemento)
 }
+retornaPrimeiroElemento [1, 2, 3]
 
 // EXERCÍCIO 10
 function retornaUltimoElemento(array) {
-  // implemente sua lógica aqui
-
+retornaUltimoElemento = array [array.length-1]
+return (retornaUltimoElemento)
 }
+retornaUltimoElemento [1, 2, 3, 4, 5]
 
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
-  // implemente sua lógica aqui
+  const primeiroElemento = array[0]
+  const ultimoElemento = array[array.length-1]
+  array[0] = array [array.length-1]
+  array[array.length-1] = primeiroElemento
+  return array
 
 }
+
+trocaPrimeiroEUltimo [1, 2, 3, 4, 5]
+
 
 // EXERCÍCIO 12
-function checaIgualdadeDesconsiderandoCase(string1, string2) {
-  // implemente sua lógica aqui
-
+function checaIgualdadeDesconsiderandoCase(string1,string2) {
+  const checaIgualdadeDesconsiderandoCase = string1==string2
+  return checaIgualdadeDesconsiderandoCase
 }
 
-// EXERCÍCIO 13
+checaIgualdadeDesconsiderandoCase ("Ola", "olA")
+
+/* / EXERCÍCIO 13
 function checaRenovacaoRG() {
-  // implemente sua lógica aqui
+const anoAtual = Number(prompt ("Em que ano estamos?"))
+const anoNascimento = Number(prompt ("Em que ano vc nasceu?"))
+const anoCarteiraIdentidade = Number(prompt ("Em que ano sua carteira de identidade foi emitida?"))
+const idade = anoAtual - anoNascimento
+const RG = anotAtual - anoCarteiraIdentidade
+const condicoes1 = idade < 20 && RG > 5
+const condicoes2 =  20 < idade && idade < 50 && RG > 10
+const condicoes3 =  50> idade && RG > 15
 
-}
+console.log ()
+} */
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
