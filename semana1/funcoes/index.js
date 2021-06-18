@@ -19,9 +19,9 @@
 	//return texto.toLowerCase().includes("cenoura")
 //}
 
-//const resposta = outraFuncao(`Eu gosto de cenoura`)
-//const resposta = outraFuncao(`CENOURA é bom pra vista`)
-//const resposta = outraFuncao (`Cenouras crescem na terra`)
+//const resposta = outraFuncao(`Eu gosto de cenoura`) true
+//const resposta = outraFuncao(`CENOURA é bom pra vista`) true
+//const resposta = outraFuncao (`Cenouras crescem na terra`) true
 
 //console.log(resposta)
 
@@ -111,14 +111,14 @@ numeroPar (50)
 //d) Faça uma função que recebe uma mensagem (`string`) como parâmetro e imprima o tamanho dessa mensagem,
 //juntamente com uma versão dela em letras maiúsculas.
 
-function mensagem(texto){
+/* function mensagem(texto){
    const meuTexto = texto.toUpperCase()
-   const lenght = texto. length
+   const lenght = texto.length
    console.log (meuTexto)
    console.log (lenght)
     return
 }
-mensagem ("Estou de saco cheio. Quero dormir!")
+mensagem ("Estou de saco cheio. Quero dormir!") */
 
 /* 
 
@@ -133,3 +133,50 @@ inputados pelo usuário sendo o argumento. Por fim, mostre no console o resultad
         Multiplicação: 90
         Divisão: 10
         ``` */
+
+/* function operacoesBasicas(num1, num2){
+    const soma = num1 + num2
+    const subtracao = num1 - num2
+    const multiplicacao = num1 * num2
+    const divisao = num1 / num2
+    
+    console.log (soma)
+    console.log (subtracao)
+    console.log (multiplicacao)
+    console.log (divisao)
+return soma
+return subtracao
+return multiplicacao
+return divisao
+}
+
+operacoesBasicas(30,3)
+ */
+/* DESAFIOS
+1-
+const arrow = (num1) => {
+    console.log (num1)
+}
+
+arrow(10)
+arrow(20)
+/* 
+//2
+const imprimeNoConsole = (variavel) => {
+    console.log (variavel)
+}
+imprimeNoConsole ("Olá")
+
+const somaDoisValores = (num1, num2) =>{
+    const soma = num1 + num2
+    imprimeNoConsole (soma)
+}
+
+somaDoisValores (10,20) */
+
+const areaTriangulo = (num1, num2) => {
+    const area = (num1 * num2)/2
+    console.log (area)
+}
+
+areaTriangulo (10,20)
