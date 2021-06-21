@@ -123,7 +123,7 @@ const minhaFuncao = {
 
 console.log (minhaFuncao)
 
- */ const pessoa2 = {
+/*const pessoa2 = {
     nome: "Gustavo Vettorato",
     Idade: 34,
     Profissão: "Designer"
@@ -132,22 +132,62 @@ console.log (minhaFuncao)
 const minhaFuncao = {
     array: [pessoa2.nome, pessoa2.nome.length, pessoa2.Idade, pessoa2.Profissão, pessoa2.Profissão.length]    
 }
-console.log (minhaFuncao)
+console.log (minhaFuncao) */
 
 
-/* b) Escreva uma função que receba esses objetos e retorne um array com as seguintes 
+/*  b) Escreva uma função que receba esses objetos e retorne um array com as seguintes 
 1. O valor de `nome`
 2. O numero de caracteres do valor `nome`
 3. O valor de `idade`
 4. O valor de `profissão`
-5. O numero de caracteres do valor `profissão`
+5. O numero de caracteres do valor `profissão` */
         
-3. Resolva os passos a 
+/* 3. Resolva os passos a 
 a) Crie uma variável de escopo global que guarde um `array` vazio chamada `carrinho`
 
-b) Crie três novos objetos que representem frutas de um sacolão. Eles devem ter as seguintes nome (`string`) e disponibilidade (`boolean` - devem começar como `true`)
 
-c) Crie uma função que **receba** um objeto fruta por **parâmetro** e coloque-a dentro do array de `carrinho`. Invoque essa função passando os três objetos criados. 
+b) Crie três novos objetos que representem frutas de um sacolão. 
+Eles devem ter as seguintes nome (`string`) e disponibilidade (`boolean` - devem começar como `true`) */
+
+/* c) Crie uma função que **receba** um objeto fruta por **parâmetro** e 
+coloque-a dentro do array de `carrinho`. Invoque essa função passando os três objetos criados. 
 
 
- d) Imprima a variável `carrinho` e garanta que ela agora seja um **array preenchido com três objetos.**  */ 
+ d) Imprima a variável `carrinho` e garanta que ela agora seja um **array preenchido com três objetos.**  */
+
+ let carrinho = []
+
+let frutasDoSacolao = [
+    { nome: "Mamão", disponível: "true" },
+    { nome: "Melão", disponível: "true" },
+    { nome: "Abacate", disponível: "true" },
+
+]
+
+carrinho.push = [frutasDoSacolao[0], frutasDoSacolao[1], frutasDoSacolao[2]]
+
+console.log ("Este é um carrinho de compras", carrinho) 
+
+let disponivel = (frutasDoSacolao[0].disponivel)
+
+console.log ("Tem mamão no sacolão", (!frutasDoSacolao[0].disponível))
+
+
+//Desafios
+//1
+
+/* const novoUsuario = {
+nome: prompt("Qual o seu nome?"),
+idade: Number(prompt("Qual a sua idade?")),
+profissão: prompt("Qual a sua profissão?")
+}
+console.log (novoUsuario)
+novoUsuario.typeof */
+
+/* const filmes = [
+{ nome: "Titanic", data: 1996 },
+{ nome: "Nomadland", data: 2021 }
+
+]
+
+console.log ("O primeiro filme foi lançado antes do segundo?", filmes[0].data < filmes[1].data) */
