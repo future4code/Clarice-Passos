@@ -125,11 +125,12 @@ trocaPrimeiroEUltimo [1, 2, 3, 4, 5]
 
 // EXERCÍCIO 12
 function checaIgualdadeDesconsiderandoCase(string1,string2) {
-  const checaIgualdadeDesconsiderandoCase = string1 == string2
-  return checaIgualdadeDesconsiderandoCase
+  return string1.toUpperCase() == string2.toUpperCase()
 }
 
 checaIgualdadeDesconsiderandoCase (Ola, olA)
+
+
 
 /* / EXERCÍCIO 13
 function checaRenovacaoRG() {
