@@ -97,6 +97,31 @@ console.log (apenasCachorroPoodle) */
 //b) Crie um novo array que contenha um objeto com o nome e o preço de cada item, 
 //aplicando 5% de desconto em todos eles
 
+
+/* const novoArray = produtos.map((item) => {
+let nomes = item.nome
+let desconto = item.preco * 0.95 
+return {nome: nomes, preco: desconto}
+})
+ console.log (novoArray) */
+ 
+// c) Crie um novo array que contenha apenas os objetos da categoria Bebidas
+/* const arrayBebidas = produtos.filter((item) => {
+return apenasBebidas = item.categoria === "Bebidas"
+})
+
+console.log(arrayBebidas) */
+
+//    d) Crie um novo array que contenha apenas os objetos cujo nome contenha a palavra "Ypê"
+/* const arrayBebidas = produtos.filter((item) => {
+    let apenasBebidas = item.nome.includes("Ypê")
+    return apenasBebidas
+
+    })
+    console.log(arrayBebidas) */
+
+
+//e) Crie um novo array onde cada item é uma frase "Compre [NOME] por [PREÇO]".
 const produtos = [
     { nome: "Alface Lavada", categoria: "Hortifruti", preco: 2.5 },
     { nome: "Guaraná 2l", categoria: "Bebidas", preco: 7.8 },
@@ -110,25 +135,10 @@ const produtos = [
     { nome: "Sabão em Pó Ypê", categoria: "Limpeza", preco: 10.80 }
 ]
 
-const novoArray = produtos.map((item) => {
-let nomes = item.nome
-let desconto = item.preco * 0.95  
-return novoObjeto = [{nomes, desconto}]  
+const arrayBebidas = produtos.filter((item) => {
+    let apenasBebidas = item.nome.includes("Ypê")
+    return apenasBebidas
+    }).map((item) => {
+    return `Nome produto ${item.nome} e preço R$ ${item.preco}`
 })
-
-console.log (novoObjeto)
-
-/* console.log("ITEM B")
-const productoDesconto = produtos.map((produto)=>{
-    let desconto = produto.preco*0.05
-    produto.preco -= desconto
-    return produto;
-})
-console.log(productoDesconto) */
-
-
-// c) Crie um novo array que contenha apenas os objetos da categoria Bebidas
-
-//    d) Crie um novo array que contenha apenas os objetos cujo nome contenha a palavra "Ypê"
-
-//e) Crie um novo array onde cada item é uma frase "Compre [NOME] por [PREÇO]". Esse array deve conter frases apenas dos itens cujo nome contenha a palavra "Ypê"
+console.log (arrayBebidas)
