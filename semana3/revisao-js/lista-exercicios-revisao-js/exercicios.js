@@ -10,7 +10,7 @@ console.log(inverteArray[0, 8, 23, 16, 10, 15, 41, 12, 13]) */
 
 
 // EXERCÍCIO 02
- function retornaNumerosParesElevadosADois(array) {
+/*  function retornaNumerosParesElevadosADois(array) {
   let arrayParesElevados = []
   for (let i = 0; i < array.length; i ++){
     if (array[i] % 2 === 0){
@@ -20,7 +20,7 @@ console.log(inverteArray[0, 8, 23, 16, 10, 15, 41, 12, 13]) */
   return arrayParesElevados
 }
 
-console.log(retornaNumerosParesElevadosADois(1, 2, 3, 4, 5, 6))
+console.log(retornaNumerosParesElevadosADois(1, 2, 3, 4, 5, 6)) */
 
 // EXERCÍCIO 03
 
@@ -35,13 +35,24 @@ const arrayVazio =[]
 console.log(retornaNumerosPares(1,2,3,4,5,6,7)) */
 
 
-/* // EXERCÍCIO 04
+ // EXERCÍCIO 04
 function retornaMaiorNumero(array) {
+  let maiorNumero = 0
+  const tam = array.length
 
+  for (let i = 0; i < array.length; i ++) {
+      const numeroAtual = array[i]
+      if(numeroAtual > maiorNumero){
+        maiorNumero = numeroAtual
+    }
+  }
+  return maiorNumero
 }
+console.log(retornaMaiorNumero(1,2,3,4,5,6))
+
 
 // EXERCÍCIO 05
-function retornaQuantidadeElementos(array) {
+/* function retornaQuantidadeElementos(array) {
   
 }
 
