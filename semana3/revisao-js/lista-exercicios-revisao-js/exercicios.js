@@ -1,4 +1,4 @@
-// EXERCÍCIO 01
+/* // EXERCÍCIO 01
 function inverteArray(array) {
   const arrayInvertido = []
   for (let i = array.length - 1; i >= 0; i--){
@@ -6,20 +6,36 @@ function inverteArray(array) {
   }
   return arrayInvertido
 }
-console.log(inverteArray[0, 8, 23, 16, 10, 15, 41, 12, 13])
+console.log(inverteArray[0, 8, 23, 16, 10, 15, 41, 12, 13]) */
 
 
 // EXERCÍCIO 02
-function retornaNumerosParesElevadosADois(array) {
-
+ function retornaNumerosParesElevadosADois(array) {
+  let arrayParesElevados = []
+  for (let i = 0; i < array.length; i ++){
+    if (array[i] % 2 === 0){
+      const elevado2 = Math.pow(array[i], 2)
+   arrayParesElevados.push(Math.pow(array[i], 2))}
+    }
+  return arrayParesElevados
 }
+
+console.log(retornaNumerosParesElevadosADois(1, 2, 3, 4, 5, 6))
 
 // EXERCÍCIO 03
-function retornaNumerosPares(array) {
 
-}
+/* function retornaNumerosPares(array) {
+const arrayVazio =[]
+  for (let i = 0; i < array.length; i ++) {
+    if (array[i] % 2 === 0){
+      arrayVazio.push(array[i]) }
+  }
+    return arrayVazio
+  }
+console.log(retornaNumerosPares(1,2,3,4,5,6,7)) */
 
-// EXERCÍCIO 04
+
+/* // EXERCÍCIO 04
 function retornaMaiorNumero(array) {
 
 }
@@ -132,6 +148,4 @@ function ordenaPorData(consultasData) {
 }
 
 // EXERCÍCIO 20
-function calculaSaldo(contas) {
-
-}
+function calculaSaldo(contas) { */
