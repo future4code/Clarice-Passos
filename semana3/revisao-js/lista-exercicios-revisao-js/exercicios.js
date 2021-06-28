@@ -50,7 +50,7 @@ function retornaMaiorNumero(array) {
 }
 console.log(retornaMaiorNumero(1,2,3,4,5,6)) */
 
-
+/* 
 // EXERCÍCIO 05
 function retornaQuantidadeElementos(array) {
   const tamanhoArray = array.length
@@ -59,44 +59,88 @@ function retornaQuantidadeElementos(array) {
 console.log(retornaQuantidadeElementos(1,2,3,4,5,6,7))
 
 // EXERCÍCIO 06
-/* function retornaExpressoesBooleanas() {
+function retornaExpressoesBooleanas() {
+ const respostas =[false, false, true, true, true]
+ return respostas}
 
-}
+ console.log(retornaExpressoesBooleanas())
+
+ const booleano1 = true
+ const booleano2 = false
+ const booleano3 = !booleano2 
+ const booleano4 = !booleano3 
+
+booleano1 && booleano2 && !booleano4 //F
+
+(booleano1 && booleano2) || !booleano3 //V
+
+(booleano2 || booleano3) && (booleano4 || booleano1) //V
+
+!(booleano2 && booleano3) || !(booleano1 && booleano3)//F
+V
+!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)//V */
 
 // EXERCÍCIO 07
-function retornaNNumerosPares(n) {
-
+/* function retornaNNumerosPares(n) {
+  const pares = []
+  for (let i = 0; i < n*2; i ++) {
+    if (array[i] % 2 === 0){
+      pares.push(i)
 }
+  }
+return pares
+  } */
 
 // EXERCÍCIO 08
-function checaTriangulo(a, b, c) {
-  // return 'Escaleno'
-  // return 'Equilátero'
-  // return 'Isósceles'
+/* function checaTriangulo(a, b, c) {
+  const lado1 = a
+  const lado2 = b
+  const lado3 = c
+  if (lado1 !== lado2 && lado2 !== lado3) {
+    return 'Escaleno';
+  } else if (lado1 === lado2 && lado1 === lado3) {
+    return 'Equilátero';
+  } else {
+    return 'Isósceles'
+  }
 }
-
+ */
 // EXERCÍCIO 09
-function comparaDoisNumeros(num1, num2) {
-  // Formato do objeto a ser retornado:
-  // {
-  //   maiorNumero: X,
-  //   maiorDivisivelPorMenor: Y,
-  //   diferenca: Z
-  // }
-}
+ //function comparaDoisNumeros(num1, num2) {
+/*    let maiorNumero
+   let menorNumero
+   if (num1 > num2){
+     maiorNumero = num1;
+     menorNumero = num2;
+   } else {
+     menorNumero = num1;
+     maiorNumero = num2; 
+   }
+   const maiorDivisivelPorMenor = maiorNumero % menorNumero === 0;
+   const diferenca =  maiorNumero - menorNumero;
+   return {
+     maiorNumero: maiorNumero,
+     maiorDivisivelPorMenor: maiorDivisivelPorMenor,
+     diferenca: diferenca,
+   };
+   }
+   console.log(comparaDoisNumeros(15,20)) */
 
-// EXERCÍCIO 10
+/* //EXERCÍCIO 10
 function segundoMaiorEMenor(array) {
-
-}
+  copia = array.sort((a,b) => a - b)
+  let novoArray = [copia[copia.length-2], copia[1]]
+  return novoArray
+} */
 
 // EXERCÍCIO 11
 function ordenaArray(array) {
-
+const arrayOrdenado = array.sort((a,b) => a-b)
+return arrayOrdenado
 }
 
 // EXERCÍCIO 12
-function filmeFavorito() {
+/* function filmeFavorito() {
 
 }
 
