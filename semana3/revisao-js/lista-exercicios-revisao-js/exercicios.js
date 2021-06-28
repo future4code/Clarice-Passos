@@ -35,7 +35,7 @@ const arrayVazio =[]
 console.log(retornaNumerosPares(1,2,3,4,5,6,7)) */
 
 
- // EXERCÍCIO 04
+/*  // EXERCÍCIO 04
 function retornaMaiorNumero(array) {
   let maiorNumero = 0
   const tam = array.length
@@ -48,16 +48,18 @@ function retornaMaiorNumero(array) {
   }
   return maiorNumero
 }
-console.log(retornaMaiorNumero(1,2,3,4,5,6))
+console.log(retornaMaiorNumero(1,2,3,4,5,6)) */
 
 
 // EXERCÍCIO 05
-/* function retornaQuantidadeElementos(array) {
-  
+function retornaQuantidadeElementos(array) {
+  const tamanhoArray = array.length
+  return tamanhoArray
 }
+console.log(retornaQuantidadeElementos(1,2,3,4,5,6,7))
 
 // EXERCÍCIO 06
-function retornaExpressoesBooleanas() {
+/* function retornaExpressoesBooleanas() {
 
 }
 
