@@ -96,7 +96,7 @@ console.log (apenasCachorroPoodle) */
 
 //b) Crie um novo array que contenha um objeto com o nome e o preço de cada item, 
 //aplicando 5% de desconto em todos eles
-
+/* 
 const produtos = [
     { nome: "Alface Lavada", categoria: "Hortifruti", preco: 2.5 },
     { nome: "Guaraná 2l", categoria: "Bebidas", preco: 7.8 },
@@ -117,7 +117,7 @@ return novoObjeto = [{nomes, desconto}]
 })
 
 console.log (novoObjeto)
-
+ */
 /* console.log("ITEM B")
 const productoDesconto = produtos.map((produto)=>{
     let desconto = produto.preco*0.05
@@ -132,3 +132,11 @@ console.log(productoDesconto) */
 //    d) Crie um novo array que contenha apenas os objetos cujo nome contenha a palavra "Ypê"
 
 //e) Crie um novo array onde cada item é uma frase "Compre [NOME] por [PREÇO]". Esse array deve conter frases apenas dos itens cujo nome contenha a palavra "Ypê"
+
+function calculaSalario(qtdeCarrosVendidos, valorTotalVendas) {
+    let salario =  2000
+    let comissao = (qtdeCarrosVendidos * 100) + (valorTotalVendas * 0.05)
+    let salarioComissão = salario + comissao
+     return salarioComissão
+   }
+   console.log(calculaSalario (3, 130000))

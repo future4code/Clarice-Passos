@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Adicionar Produto</title>
+    <title>Página de Venda</title>
 </head>
 <body>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -21,15 +21,10 @@
     </div>
 
     
-    <h2>Adicionar Produto</h2>
+    <h2>Adicionar Produto Vendido</h2>
     <form action="">
         <div>
-            <label for="link-foto">Link para foto: </label>
-            <input type="url" id="link-foto" name="link-foto">
-        </div>
-        
-        <div>
-            <label for="descricao">Descrição do produto: </label>
+            <label for="descricao">Descrição do produto vendido: </label>
             <!-- Adicione o id apropriado para o input abaixo -->
             <input type="text" id="descricao" name="descrição">
         </div>
@@ -42,16 +37,28 @@
         
         <div>
             <!-- Preencha as propriedades necessárias para os elementos abaixo -->
-            <label for="quantidade disponivel">Quantidade disponível: </label>
+            <label for="quantidade disponivel">Quantidade vendida: </label>
             <input type="number" id="quantidade-disponvel" name="quantidade disponível">
         </div>
-
-        <div class="form-add">
-            <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-            <button type="button">Adicionar</button>
+        <div>
+            <!-- Preencha as propriedades necessárias para os elementos abaixo -->
+        <div class = "box">
+            <label for="cartao">Cartão</label>
+            <input type="checkbox" id="cartao" name="cartao"checked>
+              
         </div>
+            
+        <div class="box">
+            <label for="dinheiro">Dinheiro</label>
+            <input type="checkbox" id="dinheiro" name="dinheiro">
+        </div>
+            
+        </div>
+        <div class="form-add">
+            <button type="button">Adicionar</button>
+        </div>   
+     </form>
 
-    </form>
     <footer>
         <p>Siga-nos nas redes sociais!</p>
 

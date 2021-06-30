@@ -10,30 +10,30 @@
  */
 console.log("Boas vindas ao jogo de Blackjack!")
 
-if(confirm("Você quer jogar Blackjack?")) {
-  
-const carta = comprarCarta(); 
+if (confirm("Você quer jogar Blackjack?")) {
 
-const cartasUsuario = []
+   const carta = comprarCarta();
 
-const cartasComputador = []
+   const cartasUsuario = []
 
-cartasUsuario.push(comprarCarta(), comprarCarta())
-console.log(`Usuário ${carta.texto} ${carta.valor}`,cartasUsuario)
+   const cartasComputador = []
+
+   cartasUsuario.push(comprarCarta(), comprarCarta())
+   console.log(`Usuário ${cartasUsuario[0].texto} ${cartasUsuario[1].texto} resultado: ${cartasUsuario[0].valor+cartasUsuario[1].valor}`)
 
 
-cartasComputador.push(comprarCarta(), comprarCarta())
-console.log(`Computador ${carta.texto} ${carta.valor}`,cartasComputador)
+   cartasComputador.push(comprarCarta(), comprarCarta())
+   console.log(`Computador ${cartasComputador[0].texto} ${cartasComputador[1].texto} resultado: ${cartasComputador[0].valor+cartasComputador[1].valor}`)
 
-if (cartasUsuario > cartasComputador) { 
-   console.log("Usuário venceu!")
-  
-}else{
+   if (cartasUsuario[0].valor+cartasUsuario[1].valor > cartasComputador[0].valor+cartasComputador[1].valor) {
+      console.log("Usuário venceu!")
+
+   } else {
       console.log("Computador venceu!")
 
-      }
-   } else {
+   }
+} else {
 
-      console.log("O jogo acabou 😞 ")
+   console.log("O jogo acabou 😞 ")
 }
 
