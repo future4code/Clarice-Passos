@@ -133,10 +133,23 @@ console.log(productoDesconto) */
 
 //e) Crie um novo array onde cada item é uma frase "Compre [NOME] por [PREÇO]". Esse array deve conter frases apenas dos itens cujo nome contenha a palavra "Ypê"
 
-function calculaSalario(qtdeCarrosVendidos, valorTotalVendas) {
+/* function calculaSalario(qtdeCarrosVendidos, valorTotalVendas) {
     let salario =  2000
     let comissao = (qtdeCarrosVendidos * 100) + (valorTotalVendas * 0.05)
     let salarioComissão = salario + comissao
      return salarioComissão
    }
-   console.log(calculaSalario (3, 130000))
+   console.log(calculaSalario (3, 130000)) */
+
+   function calculaNota(ex, p1, p2) {
+    let nota =(ex + (p1 *2) + (p2*3))/6
+      if (nota >= 9){
+        return "A"
+      }else if (nota < 9 && nota >=7.5){
+            return "B"
+      }else if(nota <7.5 && nota >=6){
+            return "C"
+      }else{
+            return "D"
+      }}
+      console.log(calculaNota(10,5,6))
