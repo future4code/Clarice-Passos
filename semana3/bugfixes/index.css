@@ -124,12 +124,12 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
-    position: relative;
 
 }
 
 .container-do-search {
     margin-top: 20px;
+    margin-bottom: 0;
     height: 100px;
 }
 
@@ -159,5 +159,11 @@ button:active{
 
 table, th, td {
     border: 1px solid black;
-    text-align: center;
+    margin-left: 250px;
+    margin-top: 0px;
+    font-weight: bold ;
   }
+
+div.button{
+    margin-left: 500px;
+}
