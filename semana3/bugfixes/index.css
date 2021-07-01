@@ -33,6 +33,10 @@ div>p:first-child {
     display: inline;
 }
 
+div img {
+    background: none;
+}
+
 .botao-amarelo {
     background-color: #ffaf43;
     width: 250px;
@@ -121,6 +125,7 @@ td button {
     border-radius: 5px;
     color: black;
     position: relative;
+
 }
 
 .container-do-search {
@@ -137,8 +142,18 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+
 }
 
 #back-button:hover {
-    background-color: #635a3d
+    background-color: hotpink
+}
+
+button:hover{
+    background-color: hotpink;
+}
+
+button:active{ 
+    background-color: green;
+    
 }
