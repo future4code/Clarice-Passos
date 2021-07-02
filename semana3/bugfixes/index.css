@@ -29,6 +29,10 @@ img {
     width: 100px;
 }
 
+.icone {
+    width: 20px;
+}
+
 div>p:first-child {
     display: inline;
 }
@@ -52,7 +56,7 @@ div img {
 }
 
 .container {
-    height: 500px;
+    height: 350px;
     text-align: center;
 }
 
@@ -85,7 +89,6 @@ div img {
     background-color: #e7eb90;
     text-align: center;
     position: relative
-
 }
 
 #container-para-comprar>p {
@@ -93,6 +96,7 @@ div img {
     padding: 100px 0;
     font-size: 60px;
     text-align: center;
+    margin-top: 200px;
 }
 
 #container-para-comprar>a {
@@ -108,14 +112,15 @@ div img {
   *
   **/
 
-div:nth-child(2),
-div:last-child {
-    text-align: center;
-}
+  div:nth-child(2),
+  div:last-child {
+      text-align: center;
+  }
 
 table {
     width: 60%;
     text-align: center;
+    top: auto;
 }
 
 td button {
@@ -124,25 +129,26 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+    
 
 }
 
 .container-do-search {
     margin-top: 20px;
     margin-bottom: 0;
-    height: 100px;
+    height: 50px;
 }
 
 
 #back-button {
     background-color: white;
-    width: 100px;
-    height: 20px;
+    width: 200px;
+    height: 42px;
     border: 1px solid black;
     border-radius: 5px;
     font-size: 10px;
-    color: black;
-
+    color: black;   
+   
 }
 
 #back-button:hover {
@@ -161,9 +167,10 @@ table, th, td {
     border: 1px solid black;
     margin-left: 250px;
     margin-top: 0px;
-    font-weight: bold ;
+    font-weight: bold;
   }
 
-div.button{
-    margin-left: 500px;
+.back-button {
+    margin-left: 45%;
+    margin-top: 1%;
 }
