@@ -1,0 +1,13 @@
+h1{
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    background-color: mediumvioletred;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+
+div>img{
+    width: 20px;
+}
