@@ -40,20 +40,17 @@ const App = () => {
       setTelaAtual("matches page")
     }
   
-    const limpar = (props) =>{
-      const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/clarice-passos-lovelace/clear"
-
-      axios.put(url, {
-          headers : {
-              'Content-Type': 'application/json'}
-            })
+    const limpar = () =>{
+      axios
+          .put(
+            "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/clarice-passos-lovelace/clear"
+            )
             .then((res) => {
               alert("Matches apagados")
-
-          }) 
+          })
           .catch((err) =>{
               console.log(err.response)
-          }) 
+          }); 
   }
 
 

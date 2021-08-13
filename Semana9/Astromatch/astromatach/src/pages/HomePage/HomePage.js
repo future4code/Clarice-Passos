@@ -8,9 +8,7 @@ import {Conteiner, Profile, CardUsuario, Emoji} from "./styled"
 export const HomePage = () => {
     const [profile, setProfile] = useState ({})
 
-    useEffect (() =>  {
-        getProfile()
-    }, [])
+
 
     const url = 
     "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/clarice-passos-lovelace/person"
@@ -25,14 +23,16 @@ export const HomePage = () => {
             })
     }
 
-     
+    useEffect (() =>  {
+        getProfile()
+    }, [])
 
 
     const choosePerson =() =>{
         const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/clarice-passos-lovelace/choose-person"
 
         const body = {
-            "id": "profile.id",
+            "id": profile.id,
             "choice": true
         }
         
@@ -43,10 +43,11 @@ export const HomePage = () => {
           })
 
           .then((res) => {
-              setProfile(res.data)
+              setProfile(res.data.profile)
               console.log("ok")
               getProfile()
           }) 
+
           .catch((err) =>{
               console.log(err.response)
           }) 

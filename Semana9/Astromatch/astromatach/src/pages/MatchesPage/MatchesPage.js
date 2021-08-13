@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
-import { ProfileListItem } from "../../components/ProfileListItem"
+import { ProfileListItem } from "./ProfileListItem"
 import axios from "axios"
 
 const Conteiner = styled.div`
@@ -11,31 +11,31 @@ padding: 10px;
 margin: 10px;`
 
 
-export const MatchesPage = () =>{
-    const [matches, setMatches] = useState ({})
+export const MatchesPage = () => {
+    const [matches, setMatches] = useState ([]);
 
-    const getMatches =() =>{
-        const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:clarice-passos-lovelace/matches"
+    const getMatches = () =>{
+        const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/clarice-passos-lovelace/matches"
           
-        axios.get(url)
+        axios
+           .get(url)
 
           .then((res) => {
-              setProfile(res.data.matches)
-              console.log("ok")
+              setMatches(res.data.matches)})
 
-          }) 
           .catch((err) =>{
-              console.log(err.response)
-          }) 
+              console.log(err.response)}) 
     }
 
+    useEffect (() =>  {
+        getMatches()
+    }, [])
 
-return(
-    <Conteiner>
-        <ProfileListItem/>
-    </Conteiner>
+return (
+        <Conteiner>
+            {matches.map((profile) => {
+                return <ProfileListItem profile={profile} />
+            })}
+        </Conteiner>
 )
-
 }
-
-

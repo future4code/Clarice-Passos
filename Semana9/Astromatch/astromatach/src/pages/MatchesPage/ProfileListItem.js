@@ -1,5 +1,6 @@
-import styled
- from "styled-components"
+import styled from "styled-components"
+import React from "react"
+
 const ListItemConteiner = styled.div`
 height: 30px;
 border: solid 1px black;
@@ -19,10 +20,11 @@ margin-right: 20px;
 
 
 
-export const ProfileListItem = () =>{
+export const ProfileListItem = (props) =>{
     return(
-        <ListItemConteiner>
-        <div>item</div>
+        <ListItemConteiner key={props.profile.id}>
+            <RoundImage src={props.profile.photo}/>
+            <h2>{props.profile.name}</h2>
         </ListItemConteiner>
     )
 }
