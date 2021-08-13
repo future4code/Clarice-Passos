@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { HomePage } from "./pages/HomePage/HomePage"
 import { MatchesPage } from "./pages/MatchesPage/MatchesPage"
 import styled from "styled-components"
+import axios from "axios"
 
 const Conteiner = styled.div`
 display: flex;
@@ -39,6 +40,22 @@ const App = () => {
       setTelaAtual("matches page")
     }
   
+    const limpar = (props) =>{
+      const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/clarice-passos-lovelace/clear"
+
+      axios.put(url, {
+          headers : {
+              'Content-Type': 'application/json'}
+            })
+            .then((res) => {
+              alert("Matches apagados")
+
+          }) 
+          .catch((err) =>{
+              console.log(err.response)
+          }) 
+  }
+
 
 return(
   <div>
@@ -51,7 +68,9 @@ return(
   <Button>
   <button onClick={irParaHomePage}>Home Page</button>
   <button onClick={irParaMatchesPage}>Matches</button>
-</Button>
+  <button onClick={limpar}>Limpar</button>
+
+  </Button>
        </div>
 )
 }

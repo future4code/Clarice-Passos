@@ -13,7 +13,7 @@ export const HomePage = () => {
     }, [])
 
     const url = 
-    "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${clarice-passos-lovelace}/person"
+    "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/clarice-passos-lovelace/person"
 
     const getProfile = () =>{
         axios.get(url)
@@ -29,7 +29,7 @@ export const HomePage = () => {
 
 
     const choosePerson =() =>{
-        const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${clarice-passos-lovelace}/choose-person"
+        const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/clarice-passos-lovelace/choose-person"
 
         const body = {
             "id": "profile.id",
@@ -52,39 +52,25 @@ export const HomePage = () => {
           }) 
     }
 
-    const limpar = () =>{
-        const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/clarice-passos-lovelace/clear"
-        const body = {
-            "id": "profile.id"}
-        axios.put(url, body 
-            , {
-            headers : {
-                'Content-Type': 'application/json'}
-              })
-              .then((res) => {
-                setProfile(res.data)
-                console.log("certo")
-                getProfile()
-            }) 
-            .catch((err) =>{
-                console.log(err.response)
-            }) 
-    }
+
 
     return (
         <Conteiner>
+                 {!profile ? <div>Acabaram os perfis </div> : 
             <CardUsuario>
                 <Profile src={profile.photo}/>
                 <b><h2>{profile.name}, {profile.age}</h2></b>
                 <p>{profile.bio}</p>
             </CardUsuario>
+                }
             <Emoji>
         <button onClick={choosePerson}>❤️</button>
         <button onClick={getProfile}>❌</button>
-        <button onClick={limpar}>Limpar</button>
+        
             </Emoji>
+                
         </Conteiner>
-    
+            
     )
     }
 
