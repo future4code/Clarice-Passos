@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import axios from "axios"
 import { useEffect } from "react"
 import {Conteiner, Profile, CardUsuario, Emoji} from "./styled"
-
+import Button from '@material-ui/core/Button'
 
 
 export const HomePage = () => {
@@ -65,8 +65,8 @@ export const HomePage = () => {
             </CardUsuario>
                 }
             <Emoji>
-        <button onClick={choosePerson}>❤️</button>
-        <button onClick={getProfile}>❌</button>
+        <Button variant="contained" color="#ECDCC9" onClick={choosePerson}>❤️</Button>
+        <Button variant="contained" color="#ECDCC9" onClick={getProfile}>❌</Button>
         
             </Emoji>
                 

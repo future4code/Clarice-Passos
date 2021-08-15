@@ -8,12 +8,22 @@ const Conteiner = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
+background-color: CAC2B5;
 `
 
 const Button = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
+`
+const Titulo = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 40px;
+font-weight: bold;
+color: #4d243d;
 `
 
 const App = () => {
@@ -40,13 +50,15 @@ const App = () => {
       setTelaAtual("matches page")
     }
   
-    const limpar = () =>{
+    const limpar = (props) =>{
       axios
           .put(
             "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/clarice-passos-lovelace/clear"
             )
             .then((res) => {
               alert("Matches apagados")
+              props.getProfile()
+
           })
           .catch((err) =>{
               console.log(err.response)
@@ -56,7 +68,7 @@ const App = () => {
 
 return(
   <div>
-          <div>Astromatch</div>
+          <Titulo>Astromatch</Titulo>
 
   <Conteiner>
       <div>{escolheTela()}</div>

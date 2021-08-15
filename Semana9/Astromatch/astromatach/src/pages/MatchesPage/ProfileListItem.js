@@ -2,29 +2,40 @@ import styled from "styled-components"
 import React from "react"
 
 const ListItemConteiner = styled.div`
-height: 30px;
+height: 50px;
 border: solid 1px black;
-padding: 10px;
-margin: 10px;
-width: 400px;
-justify-content: space-between;
-align-items: center;
+margin: 8px;
+width: 450px;
+display: flex;
+justify-content: center;
+align-items: right;
+padding: 4px;
+:hover {
+    background-color: rgba(0,0,0,0.1)};
 `
 
 const RoundImage = styled.img`
-width: 60px;
-height: 60px;
-border-radius: 30px;
-margin-right: 20px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+margin-right: 8px;
 `
-
+const Titulo = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 20px;
+font-weight: bold;
+color: #4d243d;
+`
 
 
 export const ProfileListItem = (props) =>{
     return(
         <ListItemConteiner key={props.profile.id}>
             <RoundImage src={props.profile.photo}/>
-            <h2>{props.profile.name}</h2>
+            <Titulo>{props.profile.name}</Titulo>
         </ListItemConteiner>
     )
 }

@@ -4,11 +4,16 @@ import { ProfileListItem } from "./ProfileListItem"
 import axios from "axios"
 
 const Conteiner = styled.div`
-height: 500px;
+display: flex;
+flex-direction: column;
+align-items: center;
+height: 80vh;
 width: 500px;
 border: 1px solid black;
-padding: 10px;
-margin: 10px;`
+padding: 20px;
+margin: 20px;
+background-color: #EDD4B2;
+`
 
 
 export const MatchesPage = () => {
