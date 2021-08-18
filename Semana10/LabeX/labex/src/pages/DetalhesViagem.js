@@ -1,7 +1,53 @@
 import React from "react"
+import { useEffect } from "react"
+import axios from "axios"
+import { useProtectedPage } from "../customHooks/UseProtectePage"
+import styled from "styled-components"
+
+const Titulo = styled.div`
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+color: gray;
+font-weight: bold;
+size: 50px;
+text-align: center;
+`
+
+const Conteiner = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border: black solid 1px;
+height: 600px;
+width: 500px;
+margin-left: auto;
+margin-right: auto;
+`
 
 export const DetalhesViagem = () => {
-return(
-<div>Detalhes da viagem</div>
-)
+    useProtectedPage()
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/clarice-passos-lovelace/trip/:id",
+            {
+                headers: {
+                    auth: token
+                }
+            })
+            .then((res) => {
+                console.log("Ok", res.data)
+
+            }).catch((err) => {
+                console.log("Erro", err.response)
+            })
+    }, [])
+
+    return (
+        <div>
+            <Titulo>Detalhes da viagem</Titulo>
+            <Conteiner>
+            </Conteiner>
+        </div>
+    )
 }

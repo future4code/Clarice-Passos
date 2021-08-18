@@ -3,8 +3,8 @@ import { AreaAdministrativa } from "../pages/AreaAdministrativa";
 import { HomePage } from "../pages/HomePage";
 import { ListaDeViagens } from "../pages/ListaDeViagens";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { CriarNovaViagem } from "../pages/CriarNovaViagem"
-import {FormularioInscricao} from "../pages/FormularioInscricao"
+import { CriarNovaViagem } from "../pages/CriarNovaViagem";
+import {FormularioInscricao} from "../pages/FormularioInscricao";
 import { DetalhesViagem } from "../pages/DetalhesViagem";
 import { Login } from "../pages/Login";
 
@@ -17,7 +17,7 @@ export const Router = () => {
     <HomePage />
   </Route>
 
-  <Route exact path={"/areadministrativa"}>
+  <Route exact path={"/admin/trips/list"}>
     <AreaAdministrativa />
   </Route>
 
@@ -29,7 +29,7 @@ export const Router = () => {
     <ListaDeViagens />
   </Route>
 
-  <Route exact path={"admin/trips/:id"}>
+  <Route exact path={"/admin/trips/:id"}>
     <DetalhesViagem />
   </Route>
 
