@@ -36,7 +36,7 @@ export const DetalhesViagem = () => {
                 }
             })
             .then((res) => {
-                console.log("Ok", res.data)
+                console.log("Ok", res.data.trip)
 
             }).catch((err) => {
                 console.log("Erro", err.response)
