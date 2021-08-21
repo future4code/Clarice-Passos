@@ -46,13 +46,13 @@ return(
 <div>
     <input
         placeholder="email"
-        type="email" required
+        type={"email"} required
         value={email}
         onChange={mudaEmail}
     />
         <input
         placeholder="senha"
-        type="password" required
+        type={"password"} required
         value={senha}
         onChange={mudaSenha}
     />

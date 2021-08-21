@@ -9,7 +9,7 @@ export const useProtectedPage = () =>{
             const token = localStorage.getItem("token");
     
                 if (token === null) {
-                    console.log("Não está logado")
+                    alert("Não está logado")
                     history.push("/login")
                 }
         }, []);

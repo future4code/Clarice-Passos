@@ -1,12 +1,12 @@
 import React from "react"
-import { AreaAdministrativa } from "../pages/AreaAdministrativa";
+import { AreaAdministrativa } from "../pages/AdminHomePage";
 import { HomePage } from "../pages/HomePage";
-import { ListaDeViagens } from "../pages/ListaDeViagens";
+import { ListaDeViagens } from "../pages/ListTripsPage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { CriarNovaViagem } from "../pages/CriarNovaViagem";
-import {FormularioInscricao} from "../pages/FormularioInscricao";
-import { DetalhesViagem } from "../pages/DetalhesViagem";
-import { Login } from "../pages/Login";
+import { CriarNovaViagem } from "../pages/CreateTripPage";
+import {FormularioInscricao} from "../pages/ApplicationFormPage";
+import { DetalhesViagem } from "../pages/TripDetailsPage";
+import { Login } from "../pages/LoginPage";
 
 export const Router = () => {
     return(
@@ -29,16 +29,20 @@ export const Router = () => {
     <ListaDeViagens />
   </Route>
 
-  <Route exact path={"/admin/trips/:id"}>
-    <DetalhesViagem />
-  </Route>
-
   <Route exact path={"/admin/trips/create"}>
     <CriarNovaViagem />
   </Route>
 
+  <Route exact path={"/admin/trips/:id"}>
+    <DetalhesViagem />
+  </Route>
+
   <Route exact path={"/login"}>
     <Login />
+  </Route>
+  
+  <Route>
+    <div>Página não encontrada</div>
   </Route>
 
 </Switch>
