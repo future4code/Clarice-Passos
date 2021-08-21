@@ -46,6 +46,8 @@ export const AreaAdministrativa = () => {
 
 
 
+
+
     
 
     const deletaViagem = (id) =>{
@@ -75,7 +77,7 @@ export const AreaAdministrativa = () => {
         return(
             <CardViagem>
                 <p>{lista.name}</p>
-                <button onClick={() => deletaViagem(lista.id)}>X</button>
+                <button onClick={() => deletaViagem(viagem.id)}>X</button>
             </CardViagem>
         )
     }

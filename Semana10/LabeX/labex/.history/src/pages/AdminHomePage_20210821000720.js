@@ -45,6 +45,34 @@ export const AreaAdministrativa = () => {
     }, []);
 
 
+    deletarUsuario = (id) =>{
+        const url =
+         `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`    
+         axios.delete(url, {
+             headers:{
+                 Authorization: "clarice-passos-lovelace"
+             }
+         })
+ 
+         .then((res) => {
+             alert ("Sucesso")
+             this.pegarListaUsuario()
+         })
+ 
+         .catch((err) => {
+             alert ("Erro")
+         })
+     }
+     
+ 
+     render(){
+         const componentesUsuarios = this.state.arrayDeNomes.map((item) => {
+             return <CardUsuario key={item.id}>
+                         {item.name}
+                         <button onClick = {() => this.deletarUsuario(item.id)}>X</button>
+                     </CardUsuario>;
+         });
+
 
     
 
@@ -75,7 +103,7 @@ export const AreaAdministrativa = () => {
         return(
             <CardViagem>
                 <p>{lista.name}</p>
-                <button onClick={() => deletaViagem(lista.id)}>X</button>
+                <button onClick={() => deletaViagem(viagem.id)}>X</button>
             </CardViagem>
         )
     }

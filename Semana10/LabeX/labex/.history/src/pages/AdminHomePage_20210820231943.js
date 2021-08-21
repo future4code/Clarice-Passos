@@ -44,26 +44,20 @@ export const AreaAdministrativa = () => {
         pegaViagens()
     }, []);
 
-
-
-    
-
-    const deletaViagem = (id) =>{
+    const deletaViagem = () =>{
         const token = localStorage.getItem('token')
-        console.log("ID", viagem.id)
-        const url =  `https://us-central1-labenu-apis.cloudfunctions.net/labeX/clarice-passos-lovelace/trips/${id}`
+        const id = viagem.id
+        const url =  `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/${id}`
         const headers = {
             headers:{
-                auth: token
-            
+                auth:token
             }
         }
        
             axios
             .delete(url, headers)
             .then((res) =>{
-                pegaViagens()
-                console.log("deletou",res.data)
+                console.log(res.data)
             })
             .catch((err) =>{
                 console.log(err.response)
@@ -75,7 +69,7 @@ export const AreaAdministrativa = () => {
         return(
             <CardViagem>
                 <p>{lista.name}</p>
-                <button onClick={() => deletaViagem(lista.id)}>X</button>
+                <button onClick={() => deletaViagem(viagem.id)}>X</button>
             </CardViagem>
         )
     }

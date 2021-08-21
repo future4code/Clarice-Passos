@@ -44,13 +44,10 @@ export const AreaAdministrativa = () => {
         pegaViagens()
     }, []);
 
-
-
-    
-
-    const deletaViagem = (id) =>{
+    const deletaViagem = () =>{
         const token = localStorage.getItem('token')
-        console.log("ID", viagem.id)
+        const id = viagem.{}
+        console.log("ID", viagem)
         const url =  `https://us-central1-labenu-apis.cloudfunctions.net/labeX/clarice-passos-lovelace/trips/${id}`
         const headers = {
             headers:{
@@ -75,7 +72,7 @@ export const AreaAdministrativa = () => {
         return(
             <CardViagem>
                 <p>{lista.name}</p>
-                <button onClick={() => deletaViagem(lista.id)}>X</button>
+                <button onClick={() => deletaViagem(viagem.id)}>X</button>
             </CardViagem>
         )
     }

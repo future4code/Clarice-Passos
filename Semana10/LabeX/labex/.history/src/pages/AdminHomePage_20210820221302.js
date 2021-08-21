@@ -28,55 +28,23 @@ export const AreaAdministrativa = () => {
     const pegaViagens = () => {
         axios
             .get(
-                'https://us-central1-labenu-apis.cloudfunctions.net/labeX/clarice-passos-lovelace/trips',
+                'https://us-central1-labenu-apis.cloudfunctions.net/labeX/clarice-passos-lovelace/trips'
                 )
             .then((res) => {
-                setViagem(res.data.trips);
+                setViagem(res.data.trips)
             })
             .catch((err) => {
-                console.log(err.response);
+                console.log(err.response)
             });
     }
-
-    console.log(viagem)
 
     useEffect (() => {
         pegaViagens()
     }, []);
 
-
-
-    
-
-    const deletaViagem = (id) =>{
-        const token = localStorage.getItem('token')
-        console.log("ID", viagem.id)
-        const url =  `https://us-central1-labenu-apis.cloudfunctions.net/labeX/clarice-passos-lovelace/trips/${id}`
-        const headers = {
-            headers:{
-                auth: token
-            
-            }
-        }
-       
-            axios
-            .delete(url, headers)
-            .then((res) =>{
-                pegaViagens()
-                console.log("deletou",res.data)
-            })
-            .catch((err) =>{
-                console.log(err.response)
-            })
-        
-    }
-
     const listaDeViagens = viagem && viagem.map((lista) => {
         return(
-            <CardViagem>
                 <p>{lista.name}</p>
-                <button onClick={() => deletaViagem(lista.id)}>X</button>
-            </CardViagem>
         )
     }
     )

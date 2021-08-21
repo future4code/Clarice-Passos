@@ -74,7 +74,7 @@ export const FormularioInscricao = () => {
     const pegaViagens = () => {
         axios
             .get(
-                "https://us-central1-labenu-apis.cloudfunctions.net/labeX/clarice-passos-lovelace/trips"
+                "https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/trips"
             )
             .then((res) => {
                 setViagem(res.data.trips)

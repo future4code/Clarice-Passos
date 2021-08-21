@@ -88,7 +88,7 @@ export const FormularioInscricao = () => {
         pegaViagens()
     }, []);
 
-    console.log("imprime", viagem)
+        console.log("imprime", viagem)
 
 
     const opcoesDasViagens = viagem && viagem.map((viagens) => {

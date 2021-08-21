@@ -17,14 +17,6 @@ const Input = styled.input`
   `
 
 export const FormularioInscricao = () => {
-
-    const history = useHistory()
-
-    const voltar = () => {
-        history.push("/trips/list")
-    }
-
-
     const body = {
         name: "name",
         age: "age",
@@ -88,9 +80,12 @@ export const FormularioInscricao = () => {
         pegaViagens()
     }, []);
 
-    console.log("imprime", viagem)
+    const history = useHistory()
 
-
+    const voltar = () => {
+        history.push("/trips/list")
+    }
+        
     const opcoesDasViagens = viagem && viagem.map((viagens) => {
         return <option key={viagens.id}
             value={viagens.id}>{viagens.name}</option>
