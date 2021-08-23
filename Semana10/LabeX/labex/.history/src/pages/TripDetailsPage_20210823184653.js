@@ -34,7 +34,7 @@ export const DetalhesViagem = () => {
     useProtectedPage()
 
     const [viagem, setViagem] = useState([])
-    const pegaDetalhes = () => {
+const pegaDetalhes = () => {
         axios
             .get(`
             https://us-central1-labenu-apis.cloudfunctions.net/labeX/clarice-passos-lovelace/trip/${params.id}`

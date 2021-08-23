@@ -11,7 +11,7 @@ display: block;
 flex-direction: column;
 margin: 15px 0;
 background-color: #ffe8d6;
-height: 100vh;
+height: 1000vh;
 padding: 10px;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 `; 
@@ -84,7 +84,7 @@ export const CriarNovaViagem = () => {
                         placeholder={"Nome"}
                         required
                         type={"text"}
-                        pattern={"^.{5,}"}
+                        pattern={"^.{3,}"}
                         title={"O nome deve ter no mínimo cinco letras"}
                     />
                       <SelectPlaneta>
@@ -118,8 +118,6 @@ export const CriarNovaViagem = () => {
                         placeholder={"Descrição"}
                         required
                         type={"text"}
-                        pattern={"^.{30,}"}
-                        title={"O nome deve ter no mínimo trinta letras"}
                     />
                        <Input
                         name="durationInDays"
@@ -128,8 +126,6 @@ export const CriarNovaViagem = () => {
                         placeholder={"Duração em dias"}
                         required
                         type={"number"}
-                        pattern={"^([5-9]\d|\d{3,})$"}
-                        title={"número deve ser maior do que 50"}
                     />
                   
                 <button>Enviar</button>

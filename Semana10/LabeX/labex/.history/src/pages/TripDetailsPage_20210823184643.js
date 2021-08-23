@@ -32,8 +32,9 @@ margin-top: 5px;
 export const DetalhesViagem = () => {
     const params = useParams()
     useProtectedPage()
-
     const [viagem, setViagem] = useState([])
+
+
     const pegaDetalhes = () => {
         axios
             .get(`

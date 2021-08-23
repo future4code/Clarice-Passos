@@ -10,7 +10,7 @@ display: block;
 flex-direction: column;
 margin: 15px 0;
 background-color: #ffe8d6;
-height: 100vh;
+height: 1000vh;
 padding: 10px;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 `; 
@@ -45,7 +45,7 @@ export const FormularioInscricao = () => {
     })
         .then((res) => {
             console.log( res.data)
-            alert("cadastro feito com sucesso")
+            alert("")
         })
         .catch((err) => {
             console.log("erro", err.response.message)
@@ -107,7 +107,6 @@ export const FormularioInscricao = () => {
                 <form onSubmit={enviarFormulario}>
                     <select>
                         {opcoesDasViagens}
-                        required
                     </select>
                     <Input
                         name="name"

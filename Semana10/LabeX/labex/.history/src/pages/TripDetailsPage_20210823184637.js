@@ -30,10 +30,11 @@ margin-top: 5px;
 `
 
 export const DetalhesViagem = () => {
-    const params = useParams()
+ const params = useParams()
     useProtectedPage()
-
     const [viagem, setViagem] = useState([])
+
+   
     const pegaDetalhes = () => {
         axios
             .get(`
@@ -44,9 +45,9 @@ export const DetalhesViagem = () => {
                     }
                 }).then((res) => {
                     setViagem(res.data.trip)
-                    /*   setCandidatos(res.data.trip.candidates)
-                      setAprovados(res.data.trip.approved)
-   */
+                  /*   setCandidatos(res.data.trip.candidates)
+                    setAprovados(res.data.trip.approved)
+ */
                 }).catch((err) => {
                     console.log("Erro", err.response)
                 });
@@ -61,39 +62,39 @@ export const DetalhesViagem = () => {
         history.goBack()
     }
 
-    /*    const [candidatos, setCandidatos] = ([])
-       const [aprovados, setAprovados] = ([])
-   
-       const decideCandidato = (id, decision) => {
-           const body = {
-               approve: decision
-           }
-   
-   
-           const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/clarice-passos-lovelace/trips/${params.id}/candidates/${id}/decide`
-   
-           axios.put(url, body, {
-               headers: {
-                   "Content-Type": "application/json",
-                   auth: localStorage.getItem('token')
-               }
-           })
-   
-               .then(res => {
-                   if (id === true) {
-                       alert('Candidato aprovado')
-                   } else {
-                       alert('Reprovado :/')
-                   }
-               }).catch(res => {
-                   console.log(res.data)
-               })
-       }
-   
-       const listaCandidatos = trip && trip.trip.candidates.map(candidate => {
-           return (<div key={candidate.id}></div>)
-       })
-    */
+ /*    const [candidatos, setCandidatos] = ([])
+    const [aprovados, setAprovados] = ([])
+
+    const decideCandidato = (id, decision) => {
+        const body = {
+            approve: decision
+        }
+
+
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/clarice-passos-lovelace/trips/${params.id}/candidates/${id}/decide`
+
+        axios.put(url, body, {
+            headers: {
+                "Content-Type": "application/json",
+                auth: localStorage.getItem('token')
+            }
+        })
+
+            .then(res => {
+                if (id === true) {
+                    alert('Candidato aprovado')
+                } else {
+                    alert('Reprovado :/')
+                }
+            }).catch(res => {
+                console.log(res.data)
+            })
+    }
+
+    const listaCandidatos = trip && trip.trip.candidates.map(candidate => {
+        return (<div key={candidate.id}></div>)
+    })
+ */
 
 
     return (

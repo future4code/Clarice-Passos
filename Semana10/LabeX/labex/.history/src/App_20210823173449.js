@@ -7,7 +7,7 @@ display: block;
 flex-direction: column;
 margin: 15px 0;
 background-color: #ffe8d6;
-height: 100vh;
+height: 1000vh;
 padding: 10px;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 `; 
