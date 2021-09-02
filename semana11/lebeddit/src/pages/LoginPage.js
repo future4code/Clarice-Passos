@@ -41,7 +41,7 @@ max-width: 450px;
 `
 
 
-const Login = () => {
+const Login = ({setRightButtonText}) => {
   const [form, onChange, clear] = useForm({ email: "", password: "" })
   const history = useHistory()
 
@@ -49,7 +49,7 @@ const Login = () => {
 
   const onSubmitForm = (event) => {
     event.preventDefault()
-    doLogin(form, clear, history)
+    doLogin(form, clear, history, setRightButtonText)
   }
 
   return (

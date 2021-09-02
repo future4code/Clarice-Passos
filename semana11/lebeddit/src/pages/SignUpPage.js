@@ -41,13 +41,13 @@ max-width: 450px;
 `
 
 
-const SignUp = () => {
+const SignUp = ({setRightButtonText}) => {
   const [form, onChange, clear] = useForm({ username: "", email: "", password: "" })
   const history = useHistory()
 
   const onSubmitForm = (event) => {
     event.preventDefault()
-    doSignUp(form, clear, history)
+    doSignUp(form, clear, history, setRightButtonText)
   }
 
   useUnprotectedPage()

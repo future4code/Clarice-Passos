@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
@@ -11,14 +11,29 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 `
-
-const Header = () => {
+const Header = ({rightButtonText,setRightButtonText}) => {
+  const token = localStorage.getItem("token")
     const history = useHistory()
+   
+    const logout = () =>{
+      localStorage.removeItem("token")
+    }
+
+    const rightButtonAction = () =>{
+      if (token){
+        logout()
+        setRightButtonText("Login")
+        goToLogin(history)
+      }else{
+        goToLogin(history)
+      }
+    }
+
 return(
       <AppBar position="static">
         <StyledTollBar>
         <Button onClick={()=>goToFeedPage(history)} color="inherit">LabEddit</Button>
-        <Button onClick={()=>goToLogin(history)} color="inherit">Login</Button>
+        <Button onClick={rightButtonAction} color="inherit">{rightButtonText}</Button>
         </StyledTollBar>
       </AppBar>
 )
