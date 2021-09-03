@@ -16,3 +16,7 @@ export const goToPostPage = (history) =>{
 export const SignUpPage = (history) =>{
     history.push ("/signup")
 }
+
+export const goToDetailPage = (history, id) =>{
+    history.push (`/feed/${id}`)
+}

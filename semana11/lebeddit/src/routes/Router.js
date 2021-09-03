@@ -5,6 +5,7 @@ import FeedPage from "../pages/FeedPage"
 import Login from "../pages/LoginPage"
 import PostPage from "../pages/PostPage"
 import SignUp from "../pages/SignUpPage"
+import DetailPage from "../pages/DetailPage"
 
 const Router = ({setRightButtonText}) =>{
     return(
@@ -25,6 +26,10 @@ const Router = ({setRightButtonText}) =>{
 
             <Route exact path="/signup">
                 <SignUp setRightButtonText={setRightButtonText}/>
+            </Route>
+
+            <Route exact path="/feed/:id">
+                <DetailPage/>
             </Route>
 
             <Route>
