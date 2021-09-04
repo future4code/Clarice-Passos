@@ -3,7 +3,8 @@ import { BASE_URL } from "../constants/urls"
 import { useHistory } from "react-router";
 import { goToFeedPage } from "../routes/coordinator";
 
-export const doLogin = (body, clear, history, setRightButtonText) => {
+export const doLogin = (body, clear, history, setRightButtonText, setIsLoading) => {
+    setIsLoading(true)
     axios.post(`${BASE_URL}/users/login`, body,
       {
         headers:
@@ -12,12 +13,14 @@ export const doLogin = (body, clear, history, setRightButtonText) => {
       .then((res) =>{
         localStorage.setItem("token", res.data.token)
         clear()
+        setIsLoading(false)
         goToFeedPage(history)
         setRightButtonText("Logout")
-
+        
       })
 
       .catch((err) =>{
+        setRightButtonText("Logout")
         alert("Erro no Login!", err.response.data.message)
       })
   }

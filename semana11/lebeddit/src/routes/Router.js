@@ -3,9 +3,10 @@ import { Switch, Route } from "react-router-dom"
 import Erro from "../pages/Erro"
 import FeedPage from "../pages/FeedPage"
 import Login from "../pages/LoginPage"
-import PostPage from "../pages/PostPage"
+import PostPage from "../pages/PostPage/PostPage"
 import SignUp from "../pages/SignUpPage"
 import DetailPage from "../pages/DetailPage"
+import CreateComment from "../pages/PostPage/CreateComment"
 
 const Router = ({setRightButtonText}) =>{
     return(

@@ -1,12 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 import Button from '@material-ui/core/Button';
 import styled from "styled-components";
 import { TextField } from "@material-ui/core";
 import useForm from "../hooks/useForm";
 import { SignUpPage } from "../routes/coordinator";
 import { useHistory } from "react-router";
-import {doLogin} from "../services/users"
+import { doLogin } from "../services/users"
 import useUnprotectedPage from "../hooks/useUnprotectedPage";
+import { CircularProgress } from "@material-ui/core";
 
 
 export const ScreenConteiner = styled.div`
@@ -41,16 +42,20 @@ max-width: 450px;
 `
 
 
-const Login = ({setRightButtonText}) => {
+const Login = ({ setRightButtonText }) => {
   const [form, onChange, clear] = useForm({ email: "", password: "" })
   const history = useHistory()
 
   useUnprotectedPage()
 
+  const [isLoading, setIsLoading] = useState(false)
+
   const onSubmitForm = (event) => {
     event.preventDefault()
-    doLogin(form, clear, history, setRightButtonText)
+    doLogin(form, clear, history, setRightButtonText, setIsLoading)
   }
+
+
 
   return (
     <ScreenConteiner>
@@ -97,7 +102,7 @@ const Login = ({setRightButtonText}) => {
           color="primary"
           fullWidth
           margin={"normal"}
-        >Cadastra-se
+        >{isLoading ? <CircularProgress color={"inherit"} size={24} /> : <>Cadastra-se</>}
         </Button>
       </SignUpButtonConteiner>
 

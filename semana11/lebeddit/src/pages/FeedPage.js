@@ -5,6 +5,7 @@ import { BASE_URL } from "../constants/urls"
 import styled from "styled-components";
 import { goToDetailPage } from "../routes/coordinator";
 import { useHistory } from "react-router-dom";
+import { Typography } from "@material-ui/core";
 
 
 
@@ -21,6 +22,16 @@ width: 25%;
 cursor: pointer;
 `
 
+const Conteiner = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: 30px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 30px;
+`
+
 const FeedPage = () => {
   useProtectedPage()
 
@@ -34,19 +45,23 @@ const FeedPage = () => {
 
   const feedCard = feed.map((post) =>{
       return (<FeedCard key={post.id} onClick={()=>onClickCard(post.id)}>
-        <h3> {post.body}</h3> <h3>{post.username}</h3>
-            <p>❤️{post.voteSum}</p> 
-            <p>💬{post.commentCount}</p>
-            <p>{post.userVote}</p>
+         <Typography>
+         <h3>{post.username}</h3>
+         <hr/>
+         <h3> {post.body}</h3> 
+            <span>❤️{post.voteSum}</span> 
+            <span>💬{post.commentCount}</span>
+            <span> ⬆{post.userVote}⬇</span>
+            </Typography>
             </FeedCard>)
   })
 
   return(
     
-      <div>
+      <Conteiner>
         <h3>Feed</h3>
         {feedCard}
-    </div>
+    </Conteiner>
   )
 }
 
