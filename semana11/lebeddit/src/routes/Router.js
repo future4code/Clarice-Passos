@@ -6,7 +6,6 @@ import Login from "../pages/LoginPage"
 import PostPage from "../pages/PostPage/PostPage"
 import SignUp from "../pages/SignUpPage"
 import DetailPage from "../pages/DetailPage"
-import CreateComment from "../pages/PostPage/CreateComment"
 
 const Router = ({setRightButtonText}) =>{
     return(

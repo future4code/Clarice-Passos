@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { goToDetailPage } from "../routes/coordinator";
 import { useHistory } from "react-router-dom";
 import { Typography } from "@material-ui/core";
-
+import PostCard from "../components/PostCard";
 
 
 const FeedCard = styled.div`
@@ -18,42 +18,33 @@ display: flex;
 flex-direction: column;
 margin-left: auto;
 margin-right: auto;
-width: 25%;
 cursor: pointer;
 `
 
 const Conteiner = styled.div`
 display: flex;
 flex-direction: column;
-align-items: center;
+align-content: center;
 justify-content: center;
-margin: 30px;
+margin-left: auto;
+margin-right: auto;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 font-size: 30px;
+width: 450px;
+gap: 20px;
+h3{
+  text-align: center;
+}
 `
 
 const FeedPage = () => {
   useProtectedPage()
 
-  const history = useHistory()
-
-  const onClickCard = (id) =>{
-    goToDetailPage(history, id)
-  }
   
   const feed = UseRequestData ([], `${BASE_URL}/posts`)
 
   const feedCard = feed.map((post) =>{
-      return (<FeedCard key={post.id} onClick={()=>onClickCard(post.id)}>
-         <Typography>
-         <h3>{post.username}</h3>
-         <hr/>
-         <h3> {post.body}</h3> 
-            <span>❤️{post.voteSum}</span> 
-            <span>💬{post.commentCount}</span>
-            <span> ⬆{post.userVote}⬇</span>
-            </Typography>
-            </FeedCard>)
+      return (<PostCard post={post} />)
   })
 
   return(

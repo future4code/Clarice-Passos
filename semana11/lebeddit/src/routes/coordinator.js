@@ -6,11 +6,11 @@ export const goToLogin = (history) =>{
 }
 
 export const goToFeedPage = (history) =>{
-    history.push ("/")
+    history.push ("/feed")
 }
 
 export const goToPostPage = (history) =>{
-    history.push ("/post")
+    history.push ("/")
 }
 
 export const SignUpPage = (history) =>{

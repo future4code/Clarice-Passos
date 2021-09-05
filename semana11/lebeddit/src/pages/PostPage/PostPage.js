@@ -6,7 +6,6 @@ import { Typography } from "@material-ui/core";
 import useForm from "../../hooks/useForm"
 import TextField from "@material-ui/core/TextField"
 import createPost from "../../services/posts"
-import { CommentConteiner } from "./CreateComment";
 
 export const ScreenConteiner = styled.div`
 display: flex;
@@ -52,7 +51,6 @@ const PostPage = () => {
   
   return (
     <div>
-  
       <h2>Post</h2>
       <form onSubmit={onSubmitForm} />
       <TextField
@@ -92,9 +90,9 @@ const PostPage = () => {
         margin={"normal"}
       >Enviar
       </Button>
-      <CommentConteiner></CommentConteiner>
     </div>
   )
+ 
 }
 
 export default PostPage;
