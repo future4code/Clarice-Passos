@@ -40,6 +40,14 @@ const insertUser = async (
       .into("TodoListUser");
 };
 
+const getUserById = async (id: string): Promise<any> => {
+   const result = await connection.raw(`
+     SELECT * FROM TodoListUser WHERE id = '${id}'
+   `)
+ 
+    return result[0][0]
+ }
+
 app.post("/user", async (req: Request, res: Response) => {
    let errorCode: number = 400;
 
@@ -59,18 +67,21 @@ app.post("/user", async (req: Request, res: Response) => {
    }
 })
 
-/* app.get("/caminhoDoEndpoint", async (req: Request, res: Response) => {
-   try { //inicio de um sonho
-      //corpo da função. Como é um get, normalmente buscaremos alguma informação.
 
-      //fim do corpo da função
-      //deu tudo certo
-      res.status(200).send({ chaveDoRetorno: valorDaBusca });
-   } catch (error) {
-      //deu tudo errado
-      res.status(400).send({ chaveDoErro: valorDoErro });
+app.get("/user/:id", async (req: Request, res: Response) => {
+   try {
+     const id = req.params.id;
+     const user = await getUserById(id);
+ 
+     res.status(200).send(user)
+   } catch (err: any) {
+     res.status(400).send({
+       message: err.message,
+     });
    }
-}); */
+ });
+
+ 
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {
