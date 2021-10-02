@@ -44,44 +44,54 @@ const getUserById = async (id: string): Promise<any> => {
    const result = await connection.raw(`
      SELECT * FROM TodoListUser WHERE id = '${id}'
    `)
- 
-    return result[0][0]
- }
+
+   return result[0][0]
+}
 
 app.post("/user", async (req: Request, res: Response) => {
    let errorCode: number = 400;
 
    try {
-      const {name, nickname, email} = req.body
-       if(!name || !nickname || !email){
+      const { name, nickname, email } = req.body
+      if (!name || !nickname || !email) {
          errorCode = 422;
          throw new Error("Please check the fields!")
-       }
+      }
 
       const id = Number(Date.now().toString(10).substr(2, 4)) + Number(Math.random().toString(10).substr(2, 4));
       Math.floor(id / 10000)
       await insertUser(id, name, nickname, email)
       res.status(201).send({ message: "User created successfully!" });
-      } catch (error: any) {
+   } catch (error: any) {
       res.status(400).send({ message: error.message || error.sqlMessage })
    }
 })
 
 
 app.get("/user/:id", async (req: Request, res: Response) => {
-   try {
-     const id = req.params.id;
-     const user = await getUserById(id);
- 
-     res.status(200).send(user)
-   } catch (err: any) {
-     res.status(400).send({
-       message: err.message,
-     });
-   }
- });
+   let errorCode: number = 400;
 
- 
+   try {
+      const id = req.params.id;
+      const user = await getUserById(id);
+      if (!user) {
+         res.status(404).send({
+            message: "user not found"
+         })
+      }
+      res.status(200).send({
+         message: "Sucesso!",
+         id: user.id,
+         nickname: user.nickname
+      })
+   } catch (err: any) {
+      res.status(400).send({
+         message: err.message,
+      });
+   }
+});
+
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {
