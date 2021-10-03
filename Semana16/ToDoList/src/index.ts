@@ -48,12 +48,31 @@ const getUserById = async (id: string): Promise<any> => {
    return result[0][0]
 }
 
-const updateUser = async (id: number, name: string, nickname: string): Promise<any> => {
+const updateUser = async (id: string, name: string, nickname: string): Promise<any> => {
    await connection ("TodoListUser").update({
       name: name,
       nickname: nickname
    }).where({id:id})
 }
+
+const insertTask = async (
+   id: number,
+   title: string,
+   description: string,
+   limit_date: Date,
+   creator_user_id: number
+
+): Promise<void> => {
+   await connection
+      .insert({
+         id,
+         title,
+         description,
+         limit_date,
+         creator_user_id
+      })
+      .into("TodoListTask");
+};
 
 app.post("/user", async (req: Request, res: Response) => {
    let errorCode: number = 400;
@@ -102,13 +121,11 @@ app.put("/user/edit/:id", async (req: Request, res: Response) => {
    let errorCode: number = 400;
    try {
       const { name, nickname} = req.body
-      const id = req.params.id
-
       if (name === "" || nickname === "" ) {
          errorCode = 422;
          throw new Error("Please check the fields!")
       }
-      await updateUser(req.body.id, req.body.name, req.body.nickname);
+      await updateUser(req.params.id, req.body.name, req.body.nickname);
       res.status(200).send({
          message: "Success",
       });
@@ -119,6 +136,25 @@ app.put("/user/edit/:id", async (req: Request, res: Response) => {
    }
 });
 
+
+app.post("/task", async (req: Request, res: Response) => {
+   let errorCode: number = 400;
+
+   try {
+      const { title, description, limit_date, creator_user_id } = req.body
+      if (!title || !description || !limit_date || !creator_user_id) {
+         errorCode = 422;
+         throw new Error("Please check the fields!")
+      }
+
+      const id = Number(Date.now().toString(10).substr(2, 4)) + Number(Math.random().toString(10).substr(2, 4));
+      Math.floor(id / 10000)
+      await insertTask(id, title, description, limit_date, creator_user_id)
+      res.status(201).send({ message: "Task created successfully!" });
+   } catch (error: any) {
+      res.status(400).send({ message: error.message || error.sqlMessage })
+   }
+})
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {
