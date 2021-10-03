@@ -48,6 +48,13 @@ const getUserById = async (id: string): Promise<any> => {
    return result[0][0]
 }
 
+const updateUser = async (id: number, name: string, nickname: string): Promise<any> => {
+   await connection ("TodoListUser").update({
+      name: name,
+      nickname: nickname
+   }).where({id:id})
+}
+
 app.post("/user", async (req: Request, res: Response) => {
    let errorCode: number = 400;
 
@@ -91,6 +98,26 @@ app.get("/user/:id", async (req: Request, res: Response) => {
    }
 });
 
+app.put("/user/edit/:id", async (req: Request, res: Response) => {
+   let errorCode: number = 400;
+   try {
+      const { name, nickname} = req.body
+      const id = req.params.id
+
+      if (name === "" || nickname === "" ) {
+         errorCode = 422;
+         throw new Error("Please check the fields!")
+      }
+      await updateUser(req.body.id, req.body.name, req.body.nickname);
+      res.status(200).send({
+         message: "Success",
+      });
+   } catch (err: any) {
+      res.status(400).send({
+         message: err.message,
+      });
+   }
+});
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
