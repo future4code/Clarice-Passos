@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import { Request, Response } from "express";
+import moment from 'moment'
 
 dotenv.config();
 
@@ -59,7 +60,7 @@ const insertTask = async (
    id: number,
    title: string,
    description: string,
-   limit_date: Date,
+   limit_date: string,
    creator_user_id: number
 
 ): Promise<void> => {
@@ -73,6 +74,15 @@ const insertTask = async (
       })
       .into("TodoListTask");
 };
+
+const getTaskById = async (id: string): Promise<any> => {
+   const result = await connection.raw(`
+     SELECT * FROM TodoListTask WHERE id = '${id}'
+   `)
+
+   return result[0][0]
+}
+
 
 app.post("/user", async (req: Request, res: Response) => {
    let errorCode: number = 400;
@@ -149,12 +159,36 @@ app.post("/task", async (req: Request, res: Response) => {
 
       const id = Number(Date.now().toString(10).substr(2, 4)) + Number(Math.random().toString(10).substr(2, 4));
       Math.floor(id / 10000)
-      await insertTask(id, title, description, limit_date, creator_user_id)
-      res.status(201).send({ message: "Task created successfully!" });
+      await insertTask(id, title, description, moment(limit_date, 'dd/mm/yyyy').format('yyyy/mm/dd'), creator_user_id)
+      res.status(201).send({ message: "Task created successfully!", id });
    } catch (error: any) {
       res.status(400).send({ message: error.message || error.sqlMessage })
    }
 })
+
+app.get("/task/:id", async (req: Request, res: Response) => {
+   let errorCode: number = 400;
+
+   try {
+      const id = req.params.id;
+      const user = await getTaskById(id);
+      if (!user) {
+         res.status(404).send({
+            message: "task not found"
+         })
+      }
+      res.status(200).send({
+         message: "Sucesso!",
+         title: user.title,
+         descriptiom: user.description
+
+      })
+   } catch (err: any) {
+      res.status(400).send({
+         message: err.message,
+      });
+   }
+});
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {
