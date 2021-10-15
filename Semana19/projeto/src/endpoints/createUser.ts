@@ -1,12 +1,15 @@
 import { Request, Response } from 'express';
 import insertUser from '../data/insertUser';
+import { User } from '../class/User';
+
 export default async function createUser(
 
     req: Request,
     res: Response
 ) {
-
+    const id: string = Date.now() + Math.random().toString()
     const { name, email, age } = req.body
+    const user: User = new User(name, email, age, id)
 
     try {
 
@@ -20,7 +23,6 @@ export default async function createUser(
             })
         }
 
-        const id: string = Date.now() + Math.random().toString()
 
         await insertUser(
             name,

@@ -2,6 +2,7 @@ import { connection } from './connection';
 import { User } from '../class/User';
 
 
+
 export default async function insertUser(
     name: string,
     email: string,

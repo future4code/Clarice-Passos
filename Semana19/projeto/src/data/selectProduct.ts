@@ -6,5 +6,5 @@ export default async function selectProduct(
 ):Promise<any>{
    const result = await connection('Product')
     .select('*')
-    return result[0]
+    return result
 }

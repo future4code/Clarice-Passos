@@ -1,5 +1,5 @@
 import { connection } from './connection';
-import { User } from '../class/User';
+import { Product } from '../class/Product';
 
 
 export default async function insertProduct(

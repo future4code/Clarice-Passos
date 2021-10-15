@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import insertProduct from '../data/insertProduct';
+import { Product } from '../class/Product';
 
 
 export default async function createProduct(
@@ -9,6 +10,8 @@ export default async function createProduct(
 ) {
 
     const { name, description, price } = req.body
+    const id: string = Date.now() + Math.random().toString()
+    
 
     try {
 
@@ -22,7 +25,6 @@ export default async function createProduct(
             })
         }
 
-        const id: string = Date.now() + Math.random().toString()
 
         await insertProduct(
             id,
