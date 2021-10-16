@@ -10,11 +10,7 @@ export default async function createProduct(
 ) {
 
     const { name, description, price } = req.body
-    const id: string = Date.now() + Math.random().toString()
-    
-
     try {
-
         if (
             !name ||
             !description ||
@@ -25,20 +21,16 @@ export default async function createProduct(
             })
         }
 
+    const id: string = Date.now() + Math.random().toString()
+    const product = new Product(name, description, price, id)
 
-        await insertProduct(
-            id,
-            name,
-            description,
-            price
+    await insertProduct(
+            product
         )
         res
             .status(200).send({
                 message: 'Produto criado com sucesso!',
-                id,
-                name: name,
-                description: description,
-                price: price
+                product
             })
 
 

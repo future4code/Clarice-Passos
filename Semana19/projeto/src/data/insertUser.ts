@@ -4,18 +4,7 @@ import { User } from '../class/User';
 
 
 export default async function insertUser(
-    name: string,
-    email: string,
-    age: number,
-    id: string
-
+user:User
 ) {
-    await connection.insert(
-        {
-            name,
-            email,
-            age,
-            id
-        }
-    ).into('User')
+    await connection.insert(user).into('User')
 }

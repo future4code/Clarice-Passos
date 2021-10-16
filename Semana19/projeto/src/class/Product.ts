@@ -1,4 +1,8 @@
 export class Product {
+   name: string;
+   description: string;
+   price: number;
+   id: string
 
    constructor(
       name: string,
@@ -6,10 +10,9 @@ export class Product {
       price: number,
       id: string
    ) {
-      if(typeof name !=="string") throw new Error ('veja se o parametro está correto')
-      if(typeof description !=="string") throw new Error ('veja se o parametro está correto')
-      if(typeof price !=="number") throw new Error ('veja se o parametro está correto')
-      if(typeof id !=="string") throw new Error ('veja se o parametro está correto')
-
+      this.name = name,
+      this.description = description,
+      this.price = price,
+      this.id = id
    }
 }

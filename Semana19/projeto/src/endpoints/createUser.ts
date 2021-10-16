@@ -6,11 +6,8 @@ export default async function createUser(
 
     req: Request,
     res: Response
-) {
-    const id: string = Date.now() + Math.random().toString()
+) { 
     const { name, email, age } = req.body
-    const user: User = new User(name, email, age, id)
-
     try {
 
         if (
@@ -23,21 +20,18 @@ export default async function createUser(
             })
         }
 
-
+        const id: string = Date.now() + Math.random().toString()
+        const user: User = new User(name, email, age, id)
+    
         await insertUser(
-            name,
-            email,
-            age,
-            id
+            user
         )
+        
         res
-            .status(200).send({
-                message: 'Usuário criado com sucesso!',
-                id,
-                name: name,
-                email: email,
-                age: age
-            })
+         .status(200).send({
+            message: 'Usuário criado com sucesso!',
+             user
+        })
 
 
     } catch (error: any) {
