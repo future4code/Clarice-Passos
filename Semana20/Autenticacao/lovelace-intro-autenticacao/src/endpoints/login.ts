@@ -11,7 +11,11 @@ export const login = async (
     // buscar usuário por email
     const { email, password } = req.body
 
-    const [user] = await connection("to_do_list_users")
+    if (!req.body.email || req.body.email.indexOf("@") === -1) {
+      throw new Error("Invalid email");
+    }
+
+    const [user] = await connection("User")
       .where({ email })
 
     // conferir se o usuário existe e a senha está correta
