@@ -13,3 +13,9 @@ export interface user extends authenticationData {
   name: string
   password: string
 }
+
+export interface userInfo {
+  id: string
+  email: string
+  role: USER_ROLES
+}

@@ -1,19 +1,14 @@
 import { Request, Response } from "express";
 import { connection } from "../data/connection";
 import { Authenticator } from "../services/Authenticator";
-import { authenticationData } from "../types";
+import { userInfo } from "../types";
 
 const userId = async (id: string): Promise<any> => {
-  let result = await connection.raw(`
-    SELECT * FROM usuario 
-    WHERE id = '${id}'
-    `)
-  return result[0][0]
+  const [result] = await connection('usuario')
+  .where({id})
+return result
 }
 
-function getTokenData(token: string) {
-  throw new Error("Function not implemented.");
-}
 
 export const getUserById = async (req: Request, res: Response) => {
 
@@ -28,11 +23,17 @@ export const getUserById = async (req: Request, res: Response) => {
     const user = await userId(tokenData?.id)
 
 
-    if (tokenData.role !== "NORMAL") {
-      throw new Error("Only a normal user can access this funcionality");
+    if (!tokenData) {
+      throw new Error("Não autorizado");
     }
 
-    res.status(200).send({ id: user.id, email: user.email })
+    const result: userInfo = {
+      id: user.id,
+      email: user.email,
+      role: user.role
+  }
+
+    res.status(200).send({ result })
 
   } catch (error: any) {
 
