@@ -1,34 +1,30 @@
 import { Request, Response } from "express";
 import { connection } from "../data/connection";
+import { Authenticator } from "../services/Authenticator";
+const userId = async (id: any): Promise<any> => {
 
-export const gerUser = async (req: Request, res: Response) => {
-    try {
-      const token = req.headers.authorization as string;
-  
-      const authenticationData = getData(token);
-  
-      const user = await getUserById(authenticationData.id);
-  
-      res.status(200).send({
-        id: user.id,
-        email: user.email,
-      });
-    } catch (err) {
-      res.status(400).send({
-        message: err.message,
-      });
-    }
-  });
+  let result = await connection.raw(`
+    SELECT * FROM user_auth 
+    WHERE id = '${id}'
+    `)
+  return result[0][0]
+}
 
-const  async getUserById(id: string): Promise<any> {
-    const result = await this.connection
-      .select("*")
-      .from('User')
-      .where({ id });
 
-    return result[0];
+export const getUserById = async (req: Request, res: Response) => {
+
+  try {
+
+    const token = req.headers.authorization as string
+
+    const tokenData = new Authenticator().getTokenData(token)
+
+    const user = await userId(tokenData?.id)
+
+    res.status(200).send({ id: user.id, email: user.email })
+
+  } catch (error: any) {
+
+    res.status(400).send({ message: error.message });
   }
-
-function getData(token: string) {
-    throw new Error("Function not implemented.");
 }
