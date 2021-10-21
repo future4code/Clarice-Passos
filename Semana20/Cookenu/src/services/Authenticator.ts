@@ -1,13 +1,13 @@
 import dotenv from "dotenv"
 import { JwtPayload, sign, verify } from "jsonwebtoken"
-import { User } from "../entities/Class";
+import { authenticationData } from "../entities/Class"
 
 dotenv.config()
 
 export class Authenticator {
 
   public generateToken = (
-    payload: User
+    payload: authenticationData
   ): string => {
 
     const token = sign(
@@ -21,7 +21,7 @@ export class Authenticator {
 
   public getTokenData = (
     token: string
-  ): User | null => {
+  ): authenticationData | null => {
     try {
 
       const tokenData = verify(

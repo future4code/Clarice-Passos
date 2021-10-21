@@ -1,4 +1,4 @@
-import { User, USER_ROLES } from "../entities/Class"
+import { user, USER_ROLES } from "../entities/Class"
 import { connection } from "./connections"
 
 export const GetUserByEmail = async(email: string): Promise<any> => {

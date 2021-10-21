@@ -1,36 +1,27 @@
 import { Request, Response } from "express";
-import { generateId } from "../services/idGenerator";
+import { IdGenerator } from "../services/idGenerator";
 import { GetUserByEmail } from "../data/GetUserByEmail";
 import { hash } from "bcryptjs";
 import { HashManager } from "../services/HashManager";
-import { User } from "../entities/Class";
+import { user, USER_ROLES } from "../entities/Class";
 import { connection } from "../data/connections";
 import { Authenticator } from "../services/Authenticator";
 
-export async function signup(req:Request, res: Response) {
-    try {
-        const {name, email, password, role} = req.body
+export default async function signup(
+  req: Request,
+  res: Response
+): Promise<void> {
+  try {
 
-        const id = generateId()
+    const { name, email, password, role } = req.body
 
-        const user = GetUserByEmail(email)
+    const user = await GetUserByEmail(email)
 
-        const cipherPassword: string = new HashManager().generateHash(password)
+    const id: string = new IdGenerator().generateId()
 
+    const cipherPassword: string = new HashManager().generateHash(password)
 
-
-        if (!name || !email || !password || !role){
-            res
-            .status(422)
-            .send("Insira corretamente as informações de 'name', 'email', 'password', 'role'") 
-        }
-
-        if (user){
-            res.status(409).send('email já cadastrado')
-        }
-
-
-    const newUser: User = {
+    const newUser: user = {
       id,
       name,
       email,
@@ -38,19 +29,39 @@ export async function signup(req:Request, res: Response) {
       role
     }
 
+    const token = new Authenticator().generateToken({
+      id,
+      role
+    })
+
+    if (!name || !email || !password) {
+      res.statusCode = 422
+      throw new Error("Preencha os campos 'name', 'password' e 'email'")
+    }
+
+    if (!(role in USER_ROLES)) {
+      res.statusCode = 422
+      throw new Error("'role' deve ser 'NORMAL' ou 'ADMIN'")
+    }
+
+    if (user) {
+      res.statusCode = 409
+      throw new Error('Email já cadastrado')
+    }
+
     await connection('usuario')
       .insert(newUser)
 
-    const token = new Authenticator().generateToken({ 
-      id,
-      role 
+    res.status(201).send({
+      message: "Usuário cadastrado com sucesso",
+      newUser,
+      token
     })
 
-    res.status(201).send({ newUser, token })
 
 
-    } catch (error) {
-        res.status(400).send(error.message)
-    }
+  } catch (error) {
+    res.send({ message: error.sqlMessage || error.message })
+  }
+
 }
-
