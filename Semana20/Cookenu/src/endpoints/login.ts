@@ -15,10 +15,10 @@ export const login = async (
     const { email, password } = req.body
 
     const [user] = await connection('usuario')
-    .where({email})
+      .where({ email })
     // conferir se o usuário existe e a senha está correta
 
-    const passwordIsCorrect:boolean = new HashManager().compareHash(password, user.password)
+    const passwordIsCorrect: boolean = new HashManager().compareHash(password, user.password)
 
     if (!user || !passwordIsCorrect) {
       res.statusCode = 401 // "Unauthorized"
@@ -32,10 +32,13 @@ export const login = async (
     })
 
     // enviar a resposta
-    res.send({ message: "Login feito!",
-            token })
+    res.send({
+      message: "Login feito!",
+      email,
+      
+    })
 
   } catch (error) {
-      res.send({ message: error.message })
+    res.send({ message: error.message })
   }
 }
