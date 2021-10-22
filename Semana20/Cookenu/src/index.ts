@@ -3,7 +3,8 @@ import cors from 'cors'
 import { AddressInfo } from "net";
 import signup from './endpoints/signup';
 import { login } from './endpoints/login';
-import { getUserById } from './endpoints/getUserByToken';
+import { getUserByToken } from './endpoints/getUserByToken';
+import getUserById from './endpoints/getUserById';
 
 const app: Express = express();
 
@@ -12,7 +13,8 @@ app.use(cors());
 
 app.post('/users/signup', signup)
 app.post ('/login', login )
-app.get ('/user/profile', getUserById)
+app.get ('/user/profile', getUserByToken)
+app.get('/user/:id', getUserById)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {

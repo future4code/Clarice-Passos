@@ -8,7 +8,7 @@ import { userInfo } from "../entities/Class";
 import findUserById from "../data/findUserById";
 
 
-export const getUserById = async (req: Request, res: Response) => {
+export const getUserByToken = async (req: Request, res: Response) => {
   try {
 
     const token = req.headers.authorization
