@@ -19,3 +19,10 @@ export enum USER_ROLES {
     email: string
     role: USER_ROLES
   } 
+
+  export interface recepie{
+    id: string
+    name: string
+    description: string
+    date: string
+  }

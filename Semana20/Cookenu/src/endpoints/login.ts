@@ -35,7 +35,7 @@ export const login = async (
     res.send({
       message: "Login feito!",
       email,
-      
+      token
     })
 
   } catch (error) {
