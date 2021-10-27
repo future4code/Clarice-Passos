@@ -1,9 +1,10 @@
 import { Request, Response } from "express"
+import { loginBusiness } from "../business/loginBusiness"
 import { signupBusiness } from "../business/signUpBusiness"
 
 
 export class UserController {
-    /*   login = async (
+       login = async (
           req: Request,
           res: Response
       ): Promise<void> => {
@@ -20,7 +21,7 @@ export class UserController {
           } catch (error: any) {
               res.status(400).send(error.message)
           }
-      } */
+      } 
 
     signup = async (
         req: Request,
