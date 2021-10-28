@@ -8,7 +8,7 @@ export enum POST_TYPES {
     photo: string,
     description: string,
     type: POST_TYPES,
-    createdAt: Date,
+    createdAt: string,
     authorId: string
  }
  
