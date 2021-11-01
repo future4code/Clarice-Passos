@@ -25,8 +25,8 @@ export const createPostBusiness = async (input: any) => {
        photo,
        description,
        type,
-       createdAt: '0',
-       authorId: '0'
+       createdAt: today ,
+       authorId: tokenData.id
    })
    
 }

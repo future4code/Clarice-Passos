@@ -21,3 +21,4 @@ export const selectUserByEmail = async (
       throw new Error("Erro ao buscar usuário")
    }
 }
+

@@ -5,6 +5,8 @@ import { authenticationData } from "../type/user"
 import { Request, Response } from "express"
 import { createPostBusiness } from "../business/createPostBusiness"
 import { POST_TYPES } from "../type/post"
+import { getPostBusiness } from "../business/getPostBusiness"
+import { findPost } from "../data/post/findPost"
 
 export class PostController {
     createPost = async (
@@ -13,8 +15,7 @@ export class PostController {
     ) => {
         try {
             let message = "Success!"
-
-
+            
             const { photo, description, type } = req.body
 
             let today = new Date().toLocaleDateString()
@@ -24,7 +25,6 @@ export class PostController {
             const tokenData: authenticationData = getTokenData(token)
 
             const id: string = generateId()
-
 
             if (
                 !photo ||
@@ -59,6 +59,33 @@ export class PostController {
 
         }
     }
-
-
+    getPostById = async (
+        req: Request,
+        res: Response
+    ) => {
+        try {
+        
+            const { id } = req.params
+        
+            const result = await findPost(id)
+         
+            if (!result) {
+               throw new Error("Tarefa não encontrada")
+            } 
+         
+          const post = {
+             id: result[0].id,
+             photo: result[0].photo,
+             description: result[0].description,
+             type: result[0].type,
+             createdAt: result[0].created_at,
+             authorId: result[0].author_id,
+          }
+         
+            res.status(200).send(post)
+        
+        } catch (error: any) {
+            res.status(400).send(error.message)
+        }
+    }
 }
