@@ -2,6 +2,9 @@ import { Request, Response } from 'express';
 import { Pokemon } from '../entities/Pokemon';
 import { connection } from "../data/connections"
 import { app } from '../app'
+import { findPokemon } from '../data/findPokemon';
+import { stringify } from 'uuid';
+import { getPokemonsBusiness } from '../business/getPokemonsBusiness';
 
 
 export default async function getAllPokemons(
@@ -9,20 +12,13 @@ export default async function getAllPokemons(
     res: Response
 
 ){  try {
-    const row = Number(req.query.row)
+     const row = Number(req.query.row)
     const name = req.query.name || "%"
     const type1 = req.query.type || "%"
 
-    let result
+    let result = await getPokemonsBusiness (row, name as string, type1 as string)
 
-    if (row) {
-      result = await connection("pokemon2")
-        .where({ row })
-    } else {
-      result = await connection("pokemon2")
-        .where("name", "LIKE", `%${name}%`)
-        .andWhere("type1", "LIKE", `%${type1}%`)
-    }
+
     res.send(result)
   } catch (error: any) {
     res
