@@ -130,9 +130,9 @@ describe("Testando o login", () => {
           (id: string) => userBusinessMock.getUserById(id)
         )
           
-        const result = await getUserById("id_mock_admin")
+        const result = await getUserById("id_mock_admin");
 
-        expect(getUserById).toHaveBeenCalledWith("id_mock_admin")
+         expect(getUserById).toHaveBeenCalledWith("id_mock_admin")
 
         expect(result).toEqual({
           id: "id_mock_admin",
