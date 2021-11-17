@@ -6,25 +6,14 @@ import { LotoMania } from '../pages/LotoMania'
 import { MegaSena } from '../pages/MegaSena'
 import { Quina } from '../pages/Quina'
 import { TimeMania } from '../pages/TimeMania'
-import Paper from '@mui/material/Paper';
-import MenuItem from '@mui/material/MenuItem';
-import { MenuList } from '@mui/material'
-import Select from '@mui/material/Select';
 import Home from '../components/NavBar'
 
 
 
 export const Router = () => {
 
-
-
-
-
-
     return (
         <div>
-
-
             <BrowserRouter>
                 <Switch>
                     <Route exact path='/'>
