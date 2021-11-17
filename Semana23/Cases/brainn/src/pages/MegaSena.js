@@ -1,0 +1,12 @@
+import React from "react";
+import NavBar from "../components/NavBar";
+
+export const  MegaSena = () => {
+
+    return(
+        <div>
+            <NavBar/>
+<p>Megasena</p>
+        </div>
+    )
+}
