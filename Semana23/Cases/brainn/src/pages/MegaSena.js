@@ -87,7 +87,8 @@ export const MegaSena = () => {
         return <div key={index.id}> {index.id} {index.nome}</div>
     })
 
-
+    const data = new Date(concursos.data)
+    const dataFormatada = data.toLocaleDateString("pt-BR", { timeZone: "UTC" })
 
     console.log(concursos)
 
@@ -103,7 +104,7 @@ export const MegaSena = () => {
                     <p>Megasena</p>
                     <p>Concurso</p>
                     <div>{concursos.id}</div>
-                    <div>{concursos.data}</div>
+                    <div>{dataFormatada}</div>
                     {renderLoterias}
                     {renderLoteriasConcurso}
 {/*   <div>{concursos.numeros[0]} </div>
