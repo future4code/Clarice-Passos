@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import styled from "styled-components"
 import { useState, useEffect } from "react";
 import axios from "axios"
+import trevo from '../trevo.png'
 
 const Conteiner = styled.div`
 display: flex;
@@ -12,10 +13,10 @@ font-family: 'Montserrat';
 
 const ConteinerGreen = styled.div`
 position: float;
-width: 60%;
+width: 75%;
 height: 100vh;
-border-bottom-right-radius: 40%;
-border-top-right-radius: 40%;
+border-bottom-right-radius: 30%;
+border-top-right-radius: 30%;
 background: #6BEFA3;
 text-align: center;
 font-family: 'Montserrat';
@@ -29,7 +30,30 @@ width:100vw;
 font-family: 'Montserrat';
 
 `
+const Circle = styled.div`
+width: 75px;
+height: 75px;
+border-radius: 50%;
+margin: black solid;
+background-color: white;
+margin-left: auto;
+margin-right: auto;
+margin-top: 75px;
+margin-bottom: auto;
+font-weight: bolder;
+font-size: 25px;
+padding: 10px;
+`
 
+const NumberConteiner = styled.div`
+display: flex;
+`
+const ConteinerInfo = styled.div`
+font-size: 30px;
+margin: 10px;
+padding: 5px;
+line-height: 2;
+`
 
 
 export const MegaSena = () => {
@@ -92,27 +116,33 @@ export const MegaSena = () => {
 
     console.log(concursos)
 
-  
+
 
     return (
         <Conteiner>
 
-            <ConteinerGray>         
+            <ConteinerGray>
 
                 <ConteinerGreen >
                     <NavBar />
-                    <p>Megasena</p>
-                    <p>Concurso</p>
-                    <div>{concursos.id}</div>
-                    <div>{dataFormatada}</div>
-                    {renderLoterias}
-                    {renderLoteriasConcurso}
-{/*   <div>{concursos.numeros[0]} </div>
-                <div>{concursos.numeros[1]} </div>
-                <div>{concursos.numeros[2]} </div>
-                <div>{concursos.numeros[3]} </div>
-                <div>{concursos.numeros[4]} </div>
-                <div>{concursos.numeros[5]} </div>  */}
+                    <ConteinerInfo>
+                        <img src={trevo} alt={'trevo megasena'}/>
+
+                        <div>Concurso:
+                            {concursos.id}</div>
+                 
+                        <div >Data:{dataFormatada}</div>
+                    </ConteinerInfo>
+                    {/*                     {renderLoterias}
+                    {renderLoteriasConcurso} */}
+                    <NumberConteiner>
+     <Circle ><p>{concursos.numeros[0]}</p></Circle>
+                        <Circle><p>{concursos.numeros[1]}</p></Circle>
+                        <Circle><p>{concursos.numeros[2]} </p></Circle>
+                        <Circle><p>{concursos.numeros[3]} </p></Circle>
+                        <Circle><p>{concursos.numeros[4]} </p></Circle>
+                        <Circle><p>{concursos.numeros[5]} </p></Circle>  
+                    </NumberConteiner>
                 </ConteinerGreen>
 
             </ConteinerGray >
