@@ -1,5 +1,6 @@
 import { Router } from './router/Router'
 import React from "react"
+import GlobalStyle from './styles/GlobalStyle';
 
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
   return (
     <div>
       <Router />
-    </div>
+{/*       <GlobalStyle/>
+ */}    </div>
   );
 }
 

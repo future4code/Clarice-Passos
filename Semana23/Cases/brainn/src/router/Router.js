@@ -6,7 +6,6 @@ import { LotoMania } from '../pages/LotoMania'
 import { MegaSena } from '../pages/MegaSena'
 import { Quina } from '../pages/Quina'
 import { TimeMania } from '../pages/TimeMania'
-import Home from '../components/NavBar'
 
 
 
@@ -16,11 +15,7 @@ export const Router = () => {
         <div>
             <BrowserRouter>
                 <Switch>
-                    <Route exact path='/'>
-                        <Home />
-                    </Route>
-
-
+                   
                     <Route exact path='/megasena'>
                         <MegaSena />
                     </Route>

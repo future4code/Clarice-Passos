@@ -20,7 +20,11 @@ export const Select = styled.select`
     transition: 0.4s;
     border: 1px solid;
     transition: 0.2s;
-  }
+  };
+  @media(max-width: 800px) {
+    flex-direction: column;
+    position: relative;
+  };
 `;
 
 const NavBar = () => {
@@ -41,8 +45,8 @@ const NavBar = () => {
 
   }, [])
 
-console.log(loterias)
-
+/* console.log(loterias)
+ */
  const renderLoterias = loterias.map((i) => {
     return <option key={i.id}>           
       {i.id} {i.nome.toUpperCase()}

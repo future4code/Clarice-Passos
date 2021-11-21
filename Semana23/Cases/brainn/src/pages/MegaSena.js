@@ -5,10 +5,15 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 import trevo from '../trevo.png'
 
+
 const Conteiner = styled.div`
 display: flex;
 flex-wrap: column;
 font-family: 'Montserrat';
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* celulares */
+}
+
 `
 
 const ConteinerGreen = styled.div`
@@ -54,7 +59,6 @@ margin: 10px;
 padding: 5px;
 line-height: 2;
 `
-
 
 export const MegaSena = () => {
 
@@ -103,19 +107,13 @@ export const MegaSena = () => {
     }, [])
 
 
-    const renderLoterias = loteriasConcursos.map((index) => {
+/*     const renderLoterias = loteriasConcursos.map((index) => {
         return <div key={index.loteriaId}> {index.loteriaId} {index.concursoId}</div>
-    })
+    }) */
 
-    const renderLoteriasConcurso = loterias.map((index) => {
-        return <div key={index.id}> {index.id} {index.nome}</div>
-    })
 
     const data = new Date(concursos.data)
     const dataFormatada = data.toLocaleDateString("pt-BR", { timeZone: "UTC" })
-
-    console.log(concursos)
-
 
 
     return (
@@ -126,22 +124,22 @@ export const MegaSena = () => {
                 <ConteinerGreen >
                     <NavBar />
                     <ConteinerInfo>
-                        <img src={trevo} alt={'trevo megasena'}/>
+                        <img src={trevo} alt={'trevo megasena'} />
 
                         <div>Concurso:
                             {concursos.id}</div>
-                 
+
                         <div >Data:{dataFormatada}</div>
                     </ConteinerInfo>
-                    {/*                     {renderLoterias}
-                    {renderLoteriasConcurso} */}
+                    {/*                  {renderLoterias}
+                    {renderLoteriasConcurso}  */}
                     <NumberConteiner>
-     <Circle ><p>{concursos.numeros[0]}</p></Circle>
+                        <Circle><p>{concursos.numeros[0]}</p></Circle>
                         <Circle><p>{concursos.numeros[1]}</p></Circle>
                         <Circle><p>{concursos.numeros[2]} </p></Circle>
                         <Circle><p>{concursos.numeros[3]} </p></Circle>
                         <Circle><p>{concursos.numeros[4]} </p></Circle>
-                        <Circle><p>{concursos.numeros[5]} </p></Circle>  
+                        <Circle><p>{concursos.numeros[5]} </p></Circle> 
                     </NumberConteiner>
                 </ConteinerGreen>
 
