@@ -64,7 +64,7 @@ export const MegaSena = () => {
 
     const [loterias, setLoterias] = useState([])
     const [loteriasConcursos, setLoteriasConcursos] = useState([])
-    const [concursos, setConcursos] = useState([])
+    const [concursos, setConcursos] = useState({})
 
     const getLoterias = () => {
         axios.get('https://brainn-api-loterias.herokuapp.com/api/v1/loterias')
@@ -107,10 +107,11 @@ export const MegaSena = () => {
     }, [])
 
 
-/*     const renderLoterias = loteriasConcursos.map((index) => {
+   const renderLoterias = loteriasConcursos.map((index) => {
         return <div key={index.loteriaId}> {index.loteriaId} {index.concursoId}</div>
-    }) */
+    }) 
 
+    console.log(concursos)
 
     const data = new Date(concursos.data)
     const dataFormatada = data.toLocaleDateString("pt-BR", { timeZone: "UTC" })
@@ -133,14 +134,14 @@ export const MegaSena = () => {
                     </ConteinerInfo>
                     {/*                  {renderLoterias}
                     {renderLoteriasConcurso}  */}
-                    <NumberConteiner>
+                   { concursos.numeros && <NumberConteiner>
                         <Circle><p>{concursos.numeros[0]}</p></Circle>
                         <Circle><p>{concursos.numeros[1]}</p></Circle>
                         <Circle><p>{concursos.numeros[2]} </p></Circle>
                         <Circle><p>{concursos.numeros[3]} </p></Circle>
                         <Circle><p>{concursos.numeros[4]} </p></Circle>
-                        <Circle><p>{concursos.numeros[5]} </p></Circle> 
-                    </NumberConteiner>
+                        <Circle><p>{concursos.numeros[5]} </p></Circle>  
+                    </NumberConteiner>}
                 </ConteinerGreen>
 
             </ConteinerGray >

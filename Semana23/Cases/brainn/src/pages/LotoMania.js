@@ -140,14 +140,14 @@ export const LotoMania = () => {
                     </ConteinerInfo>
                     {/*                  {renderLoterias}
                     {renderLoteriasConcurso}  */}
-                    <NumberConteiner>
-         <Circle ><p>{concursos.numeros[0]}</p></Circle>
+                  { concursos.numeros && <NumberConteiner>
+                        <Circle><p>{concursos.numeros[0]}</p></Circle>
                         <Circle><p>{concursos.numeros[1]}</p></Circle>
                         <Circle><p>{concursos.numeros[2]} </p></Circle>
                         <Circle><p>{concursos.numeros[3]} </p></Circle>
                         <Circle><p>{concursos.numeros[4]} </p></Circle>
-                        <Circle><p>{concursos.numeros[5]} </p></Circle> 
-                    </NumberConteiner>
+                        <Circle><p>{concursos.numeros[5]} </p></Circle>  
+                    </NumberConteiner>}
                 </ConteinerGreen>
 
             </ConteinerGray >

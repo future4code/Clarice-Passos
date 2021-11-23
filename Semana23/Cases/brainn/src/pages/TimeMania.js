@@ -76,6 +76,8 @@ export const TimeMania = () => {
             })
     }
 
+    console.log(concursos)
+
 
     useEffect(() => {
 
@@ -83,14 +85,14 @@ export const TimeMania = () => {
     }, [])
 
 
-  const renderLoteriasNumeros = concursos.numeros.map((i) => {
-        return <div key={i}>{i}</div>
-    })
- 
+  const renderLoteriasNumeros = concursos.length && concursos.numeros.map ((i) => {
+         <div key={i}>{i}</div>
+    }) 
+
+
     const data = new Date(concursos?.data)
     const dataFormatada = data.toLocaleDateString("pt-BR", { timeZone: "UTC" })
 
-    console.log(concursos)
 
 
 
@@ -110,9 +112,14 @@ export const TimeMania = () => {
                         <div >Data:{dataFormatada}</div>
                     </ConteinerInfo>
 
-                    <NumberConteiner>
-                        <Circle>{renderLoteriasNumeros}</Circle>
-                    </NumberConteiner>
+                    { concursos.numeros && <NumberConteiner>
+                        <Circle><p>{concursos.numeros[0]}</p></Circle>
+                        <Circle><p>{concursos.numeros[1]}</p></Circle>
+                        <Circle><p>{concursos.numeros[2]} </p></Circle>
+                        <Circle><p>{concursos.numeros[3]} </p></Circle>
+                        <Circle><p>{concursos.numeros[4]} </p></Circle>
+                        <Circle><p>{concursos.numeros[5]} </p></Circle>  
+                    </NumberConteiner>}
 
                 </ConteinerGreen>
 
