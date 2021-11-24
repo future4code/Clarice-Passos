@@ -47,7 +47,7 @@ export const GetAllMovies = () => {
 
     const renderMovies = movies && movies.map((i) => {
      return (
-            <div onClick={()=>goToDetailPage()}>
+            <div onClick={()=>goToDetailPage(id)}>
             <img src={`https://image.tmdb.org/t/p/w500/${i.poster_path}`}/>
             <p>{i.original_title}</p>
             </div>
