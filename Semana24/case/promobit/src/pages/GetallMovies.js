@@ -2,12 +2,23 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import dotenv from 'dotenv';
+import styled from 'styled-components'
+import { useHistory } from 'react-router';
 
+const MovieCard = styled.div`
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+img{
+    height: 300px;
+    border: solid black;
 
+}
+`
 
 export const GetAllMovies = () => {
 
     const [movies, setMovies] = useState([])
+
 
     const getMovies = () => {
         axios
@@ -26,18 +37,25 @@ export const GetAllMovies = () => {
         getMovies()
     }, [])
 
+    history = useHistory()
+
+    const goToDetailPage = (id) =>{
+        history.push (`/movies/${id}`)
+
+    }
+
+
     const renderMovies = movies && movies.map((i) => {
      return (
-            <div>
+            <div onClick={()=>goToDetailPage()}>
             <img src={`https://image.tmdb.org/t/p/w500/${i.poster_path}`}/>
             <p>{i.original_title}</p>
-            
             </div>
         )
     })
 
     return (
-        <div>{renderMovies}</div>
+        <MovieCard>{renderMovies}</MovieCard>
     )
 }
 

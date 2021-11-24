@@ -1,9 +1,9 @@
-import { GetAllMovies } from "./pages/GetallMovies";
+import { Router } from "./route/Router";
 
 function App() {
   return (
     <div>
-      <GetAllMovies/>
+      <Router/>
     </div>
   );
 }
