@@ -3,7 +3,8 @@ import { useState } from 'react'
 import axios from 'axios'
 import dotenv from 'dotenv';
 import styled from 'styled-components'
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
+import { goToDetailPage } from '../route/Coordinator';
 
 const MovieCard = styled.div`
 display: grid;
@@ -37,17 +38,16 @@ export const GetAllMovies = () => {
         getMovies()
     }, [])
 
-    history = useHistory()
+   const history = useHistory ()
 
-    const goToDetailPage = (id) =>{
-        history.push (`/movies/${id}`)
-
+    const clickCard = (id) =>{
+       goToDetailPage(history, id)
     }
 
 
     const renderMovies = movies && movies.map((i) => {
      return (
-            <div onClick={()=>goToDetailPage(id)}>
+            <div onClick={()=>clickCard(i.id)}>
             <img src={`https://image.tmdb.org/t/p/w500/${i.poster_path}`}/>
             <p>{i.original_title}</p>
             </div>
