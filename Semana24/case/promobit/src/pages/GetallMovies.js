@@ -8,11 +8,14 @@ import { goToDetailPage } from '../route/Coordinator';
 
 const MovieCard = styled.div`
 display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr;
+margin-top: 25px;
+margin-left: 35px;
+margin-right: auto;
+padding: 10px;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 img{
     height: 300px;
     border: solid black;
-
 }
 `
 
