@@ -9,12 +9,12 @@ export const SearchBar = () => {
     const [searchTerm, setSeachTerm] = useState('')
 
     const getResults = () => {
-
-        const token = "key=AIzaSyDHShX3S_tM38BKR-pVaWRh1eU20e-4p50"
+/* 
+        const token = "/* key=AIzaSyDHShX3S_tM38BKR-pVaWRh1eU20e-4p50' */
         const part = 'search?part=snippet&'
         const query = `q=${searchTerm}&`
         const maxResults = 'maxResults=9&'
-        const type = 'type=video&'
+        const type = 'type=video&' 
 
         axios
             .get(`${BASE_URL}${part}${query}${maxResults}${type}${token}`)
