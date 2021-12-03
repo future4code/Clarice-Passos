@@ -1,10 +1,12 @@
 import React from 'react'
-import { SearchBar } from './components/SearchBar';
+import { Router } from './route/Router';
+import GlobalStyle from './theme/globalStyles';
 
 function App() {
   return (
     <div>
-    <SearchBar/>
+    <Router/>
+    <GlobalStyle/>
     </div>
   );
 }
