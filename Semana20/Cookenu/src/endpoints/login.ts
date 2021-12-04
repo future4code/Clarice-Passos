@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
-import { connection } from "../data/connection";
+import { connection } from "../data/connections";
+import { GetUserByEmail } from "../data/GetUserByEmail";
+import { user } from "../entities/Class";
 import { Authenticator } from "../services/Authenticator";
+import { HashManager } from "../services/HashManager";
 
 export const login = async (
   req: Request,
@@ -11,38 +14,31 @@ export const login = async (
     // buscar usuário por email
     const { email, password } = req.body
 
-
-    if (!req.body.email || req.body.email.indexOf("@") === -1) {
-      throw new Error("Invalid email");
-    }
-
-    const [user] = await connection("User")
-
-    const [user] = await connection("to_do_list_users")
-
+    const [user] = await connection('usuario')
       .where({ email })
-
     // conferir se o usuário existe e a senha está correta
 
-    if (!user || user.password !== password) {
+    const passwordIsCorrect: boolean = new HashManager().compareHash(password, user.password)
+
+    if (!user || !passwordIsCorrect) {
       res.statusCode = 401 // "Unauthorized"
       throw new Error("Credenciais inválidas")
     }
 
     // gerar o token
     const token = new Authenticator().generateToken({
-      id: user.id
+      id: user.id,
+      role: user.role
     })
 
     // enviar a resposta
-    res.send({ token })
+    res.send({
+      message: "Login feito!",
+      email,
+      token
+    })
 
   } catch (error) {
-
-    if (res.statusCode === 200) {
-      res.status(500).send({ message: "Internal server error" })
-    } else {
-      res.send({ message: error.message })
-    }
+    res.send({ message: error.message })
   }
 }

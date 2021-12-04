@@ -10,6 +10,7 @@ export default async function createUser(
 ): Promise<void> {
   try {
 
+
     const { name, email, password } = req.body
 
     if (!name || !email || !password) {
@@ -26,6 +27,15 @@ export default async function createUser(
     }
 
     const [user] = await connection('User')
+
+    const { name, nickname, email, password } = req.body
+
+    if (!name || !nickname || !email || !password) {
+      res.statusCode = 422
+      throw new Error("Preencha os campos 'name', 'nickname', 'password' e 'email'")
+    }
+
+    const [user] = await connection('to_do_list_users')
       .where({ email })
 
     if (user) {
@@ -35,9 +45,15 @@ export default async function createUser(
 
     const id: string = new IdGenerator().generateId()
 
+
     const newUser: user = { id, name, email, password }
 
     await connection('User')
+
+    const newUser: user = { id, name, nickname, email, password }
+
+    await connection('to_do_list_users')
+
       .insert(newUser)
 
     const token = new Authenticator().generateToken({ id })
