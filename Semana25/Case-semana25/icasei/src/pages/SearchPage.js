@@ -5,14 +5,20 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 import { useParams } from "react-router";
 import styled from "styled-components";
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 
-const Button = styled.button`
+
+const Button1 = styled.button`
   background: "palevioletred";
   color:  "white";
   font-size: 1em;
   padding: 0.25em 1em;
   border: 2px solid palevioletred;
   border-radius: 3px;
+  margin-left: 5px;
+  height: 33px;
 `;
 
 const Input = styled.input`
@@ -23,28 +29,32 @@ const Input = styled.input`
   background: papayawhip;
   border: none;
   border-radius: 3px;
+  margin-right: auto;
+  margin-left: auto;
 `;
 
 const Wrapper = styled.div`
-  padding: 4em;
-  border: black solid 1px;
-  width: 500px;
-  background: papayawhip;
-  margin-left: auto;
-  margin-right: auto;
-
+  margin-left: 500px;
 `;
+
+const Form = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 10px;
+margin: 10px
+`
 
 export const SearchPage = () => {
     const [videoName, setVideoName] = useState([])
     const [searchTerm, setSeachTerm] = useState('')
     const history = useHistory()
-    const  id  = useParams()
+    const id = useParams()
 
 
     const getResults = () => {
 
-        const token = 'key=AIzaSyDHShX3S_tM38BKR-pVaWRh1eU20e-4p50'
+        const token = 'key=AIzaSyBYAOscx9jRqH2Rsj-SkNhjLTn-e4GaCZ8'
         const part = 'search?part=snippet&'
         const query = `q=${searchTerm}&`
         const maxResults = 'maxResults=9&'
@@ -84,27 +94,40 @@ export const SearchPage = () => {
     }
 
 
+
+
     return (
         <div>
+            <Form>
             <form onSubmit={sendForm}>
                 <Input
                     type={"text"}
                     value={searchTerm}
                     onChange={handleFormChange}
                     placeholder={'Termo buscado'}></Input>
-                <Button onClick={() => getResults()}>Pesquisar</Button>
+                <Button1 onClick={() => getResults()}>Pesquisar</Button1>
             </form>
-            <div>
+            </Form>
+            <Wrapper>
                 {videoName.map((i) => {
-                    return <Wrapper key={i.videoId}>
-                        <img src={i.snippet.thumbnails.medium.url} />
-                        <h4 onClick={()=>goToDetailPage (i.id.videoId)}><b>Título:</b>{i.snippet.title}</h4>
-                        <p><b>Canal:</b>{i.snippet.channelTitle}</p>
-                        <p><b>Descrição:</b>{i.snippet.description} </p>                        
-                    </Wrapper>
+                    return <Card key={i.videoId} sx={{ maxWidth: 500, margin: 3 }}>
+                        <CardMedia
+                              component="img"
+                              height="200"
+                              image={i.snippet.thumbnails.medium.url}
+                              alt="green iguana" />
+                        <Typography gutterBottom variant="h5" component="div"
+                            onClick={() => goToDetailPage(i.id.videoId)}>
+                            {i.snippet.title}
+                        </Typography>
+                        <Typography gutterBottom variant="h6" component="div"><b>Canal:</b>{i.snippet.channelTitle}</Typography>
+                        <Typography variant="body1" color="text.secondary">
+                            <b>Descrição:</b>{i.snippet.description} </Typography>
+                    </Card>
+                   
                 })
                 }
-            </div>
+            </Wrapper>
 
         </div>
 

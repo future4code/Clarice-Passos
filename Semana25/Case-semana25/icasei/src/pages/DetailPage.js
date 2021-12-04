@@ -31,7 +31,7 @@ line-height: 1.5;
 
 const likeConteiner = styled.div`
 font-size: 13px;
-line-height: ;
+line-height: 1.5;
 
 `
 
@@ -42,7 +42,7 @@ const DetailPage = () => {
 
 
     useEffect(() => {
-        const token = 'key=AIzaSyDHShX3S_tM38BKR-pVaWRh1eU20e-4p50'
+        const token = 'key=AIzaSyBYAOscx9jRqH2Rsj-SkNhjLTn-e4GaCZ8'
 
         axios
             .get(`${BASE_URL}videos?id=${id}&part=snippet,statistics&${token}`)
@@ -65,10 +65,10 @@ const DetailPage = () => {
                             <ReactPlayer url={linkYoutube} />
                             <div>
                                 <h4>📺:{i.snippet.channelTitle}</h4>
-                                <div>
+                                <likeConteiner>
                                     <p>👍{i.statistics.likeCount}</p>
                                     <p>👎{i.statistics.dislikeCount}</p>
-                                </div>
+                                </likeConteiner>
                             </div>
                             <TextDiv>
                               <b>Descrição: </b>{i.snippet.description}
