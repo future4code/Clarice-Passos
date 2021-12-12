@@ -29,7 +29,7 @@ export const Select = styled.select`
 
 const NavBar = () => {
 
-  const [loterias, setLoterias] = useState([])
+/*   const [loterias, setLoterias] = useState([])
 
   const getLoterias = () => {
     axios.get('https://brainn-api-loterias.herokuapp.com/api/v1/loterias')
@@ -45,14 +45,14 @@ const NavBar = () => {
 
   }, [])
 
-/* console.log(loterias)
- */
+ console.log(loterias)
+ 
  const renderLoterias = loterias.map((i) => {
     return <option key={i.id}>           
       {i.id} {i.nome.toUpperCase()}
 
       </option>
-  })
+  }) */
 
   const history = useHistory()
 
