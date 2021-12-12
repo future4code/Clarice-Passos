@@ -16,7 +16,13 @@ export default async function getRecepieById(
             })
         }
 
-        if(!login){
+
+
+        const token = req.headers.authorization
+
+        const getData = new Authenticator().getTokenData(token)
+
+        if(!getData){
             res.status(409).send({
                 message: 'Usuário não autorizado'
             })
