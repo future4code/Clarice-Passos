@@ -154,7 +154,15 @@ return arrayVazio
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
-
+   contas.forEach((conta) => {
+      let totalDeCompras = 0
+      conta.compras.forEach((valor) => {
+        totalDeCompras += valor
+      })
+      conta.saldoTotal -= totalDeCompras
+      conta.compras = []
+    })
+    return contas
 }
 
 // EXERCÍCIO 15A
