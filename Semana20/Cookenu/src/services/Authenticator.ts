@@ -1,4 +1,4 @@
-import dotenv from "dotenv"
+/* import dotenv from "dotenv"
 import { JwtPayload, sign, verify } from "jsonwebtoken"
 import { authenticationData } from "../entities/Class"
 
@@ -39,4 +39,4 @@ export class Authenticator {
       return null
     }
   }
-}
+} */

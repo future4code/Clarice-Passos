@@ -60,8 +60,8 @@ export const HomePage = () => {
                  {!profile ? <div>Acabaram os perfis </div> : 
             <CardUsuario>
                 <Profile src={profile.photo}/>
-                <b><h2>{profile.name}, {profile.age}</h2></b>
-                <p>{profile.bio}</p>
+                <Profile2><b><h2>{profile.name}, {profile.age}</h2></b></Profile2>
+                <Profile3><p>{profile.bio}</p></Profile3>
             </CardUsuario>
                 }
             <Emoji>
