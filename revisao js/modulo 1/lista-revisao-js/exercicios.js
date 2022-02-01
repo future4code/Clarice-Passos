@@ -61,11 +61,28 @@ function retornaMaiorNumero(array) {
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
 
+   const maiorNumero = Math.max(num1, num2)
+
+   const menorNumero = Math.min(num1, num2)
+
+   const diferenca = maiorNumero - menorNumero
+
+   const maiorDivisivelPorMenor = maiorNumero % menorNumero === 0
+
+   const objeto = {maiorNumero, maiorDivisivelPorMenor, diferenca}
+
+   return objeto
 }
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-   
+   let numerosPares = [];
+   for (let i = 0; numerosPares.length < n; i++) {
+       if (i % 2 == 0) {
+           numerosPares.push(i);
+       }
+   }
+   return numerosPares;
 }
 
 // EXERCÍCIO 09
