@@ -178,4 +178,12 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
 
+const data = newData(consultas.dataDaConsulta)
+
+const organizado = consultas.sort(function(a,b) { 
+    return a.data.getTime() - b.data.getTime() 
+});
+
+return organizado
+
 }
