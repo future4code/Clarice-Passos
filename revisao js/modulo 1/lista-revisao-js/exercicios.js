@@ -91,7 +91,7 @@ function retornaNPrimeirosPares(n) {
 function classificaTriangulo(ladoA, ladoB, ladoC) {
    if (ladoA == ladoB && ladoA == ladoC) {
       return "Equilátero"
-   } if (ladoA !== ladoB && ladoA !== ladoC && ladoB !==ladoC) {
+   } if (ladoA !== ladoB && ladoA !== ladoC && ladoB !== ladoC) {
       return "Escaleno"
    } else {
       return "Isósceles"
@@ -105,7 +105,7 @@ function retornaSegundoMaiorESegundoMenor(array) {
       return a - b
    })
 
-   return [organizar[organizar.length-2], organizar[1]]
+   return [organizar[organizar.length - 2], organizar[1]]
 
 }
 
@@ -129,11 +129,26 @@ function retornaPessoaAnonimizada(pessoa) {
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
+const arrayVazio = []
+for (const pessoa of pessoas){
 
+if (pessoa.altura > 1.5 && pessoa.idade > 14 && pessoa.idade < 60){
+   arrayVazio.push(pessoa)
+}
+}
+return arrayVazio
 }
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
+   const arrayVazio = []
+for (const pessoa of pessoas){
+
+if (pessoa.altura < 1.5 || pessoa.idade <= 14 || pessoa.idade > 60){
+   arrayVazio.push(pessoa)
+}
+}
+return arrayVazio
 
 }
 
