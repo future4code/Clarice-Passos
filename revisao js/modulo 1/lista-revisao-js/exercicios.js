@@ -89,9 +89,9 @@ function retornaNPrimeirosPares(n) {
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-   if (ladoA === ladoB === ladoC) {
+   if (ladoA == ladoB && ladoA == ladoC) {
       return "Equilátero"
-   } if (ladoA !== ladoB !== ladoC) {
+   } if (ladoA !== ladoB && ladoA !== ladoC && ladoB !==ladoC) {
       return "Escaleno"
    } else {
       return "Isósceles"
@@ -101,6 +101,11 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
+   const organizar = array.sort(function (a, b) {
+      return a - b
+   })
+
+   return [organizar[organizar.length-2], organizar[1]]
 
 }
 
