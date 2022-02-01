@@ -12,14 +12,15 @@ function retornaTamanhoArray(array) {
 // EXERCÍCIO 02
 function retornaArrayInvertido(array) {
 const reverse = array.reverse()
-
 return reverse
-  
 }
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
+  const ordered = array.sort(function(a,b){
+     return a-b
+  })
+  return ordered
 }
 
 // EXERCÍCIO 04
