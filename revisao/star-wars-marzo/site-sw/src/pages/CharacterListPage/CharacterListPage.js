@@ -2,71 +2,52 @@ import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import axios from "axios"
 import styled from "styled-components"
-import { BASE_URL } from "../../constants/BASE_URL.JS";
+import BASE_URL from "../../constants/BASE_URL.JS";
 
 const CardViagem = styled.div`
-border: solid 1px black;
-height: 200px;
+border: solid 1px red;
+width: 300px;
+height: 70px;
+margin-right: auto;
+margin-left: auto;
+margin-bottom: 10px;
 `
 const Conteiner = styled.div`
 background-color: #ffe8d6;
-height: 100vh;
 text-align: center;
 padding: 10px;
 `
 
 const CharacterListPage = () => {
-/*     const history = useHistory()
 
-    const voltar = () => {
-        history.goBack()
-    }
-
-    const inscrever = () => {
-        history.push("/trips/application")
-    } */
-
-    const [characterListPage, setCharacterListPage] = useState([])
+    const [characterListPage, setCharacters] = useState([])
 
     const getCharacterList = () => {
         axios
-            .get(
-                `${BASE_URL}$/people`
-                )
-            .then((res) => {
-                setCharacterListPage(res.data)
-                console.log(setCharacterListPage)
+            .get('https://swapi.dev/api/people')
+            .then((r) => {
+                setCharacters(r.data.results)
+                console.log(r.data.results)
             })
-            .catch((err) => {
+          .catch((err) => {
                 console.log(err.response)
-            });
+            })
     }
 
-    useEffect (() => {
+      useEffect(() => {
         getCharacterList()
-    }, []);
-
-    const characterList = characterListPage && characterListPage.map((l) => {
-        return(
-            <CardViagem>
-                <p>Nome:{l.name}</p>
-{/*                 <p>Ano de Nascimento:{l.birth_year}</p>
-                <p>Filmes:{l.films}</p>
-                <p>Duração:{lista.durationInDays}</p>
-                <p>Data:{listafilms.date}</p> */}
-            </CardViagem>
-        )
-    }
-    )
+    }, [])
 
     return (
         <Conteiner>
-            <h3>Lista De Viagens</h3>
-            {characterList}
-{/*             <button onClick={voltar}>Voltar</button>
-            <button onClick={inscrever}>Inscrever-se</button> */}
+            <h1>LISTA DE PERSONAGENS</h1>
+            {characterListPage && characterListPage.map((l, index) => 
+                <CardViagem key={index} >
+                    <h2>Name:{l.name}</h2>
+                    </CardViagem>)}
         </Conteiner>
     )
-
 }
+
+
 export default CharacterListPage;
