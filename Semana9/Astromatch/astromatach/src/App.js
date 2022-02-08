@@ -21,7 +21,9 @@ display: flex;
 align-items: center;
 justify-content: center;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-font-size: 40px;
+font-size: 30px;
+padding: 10px;
+margin: 5px;
 font-weight: bold;
 color: #4d243d;
 `
