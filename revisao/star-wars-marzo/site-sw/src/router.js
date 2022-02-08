@@ -8,13 +8,14 @@ export const Router = () => {
 <BrowserRouter>
 <Switch>
 
-  <Route exact path={"/"}>      
+  <Route exact path={"/list/:id"}>
+    <CharacterDetailPage />
+  </Route>
+
+  <Route exact path={"/list"}>      
     <CharacterListPage />
   </Route>
 
-  <Route exact path={"/detail"}>
-    <CharacterDetailPage />
-  </Route>
 
   <Route>
     <div>Página não encontrada</div>

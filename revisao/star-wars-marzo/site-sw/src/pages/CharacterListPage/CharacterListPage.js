@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import axios from "axios"
 import styled from "styled-components"
-import BASE_URL from "../../constants/BASE_URL.JS";
 
 const CardViagem = styled.div`
 border: solid 1px red;
@@ -19,6 +18,12 @@ padding: 10px;
 `
 
 const CharacterListPage = () => {
+    const history = useHistory()
+
+    const goToDetailPage = (id) => {
+        history.push(`/list/${id}`)
+    }
+
 
     const [characterListPage, setCharacters] = useState([])
 
@@ -29,22 +34,22 @@ const CharacterListPage = () => {
                 setCharacters(r.data.results)
                 console.log(r.data.results)
             })
-          .catch((err) => {
+            .catch((err) => {
                 console.log(err.response)
             })
     }
 
-      useEffect(() => {
+    useEffect(() => {
         getCharacterList()
     }, [])
 
     return (
         <Conteiner>
             <h1>LISTA DE PERSONAGENS</h1>
-            {characterListPage && characterListPage.map((l, index) => 
-                <CardViagem key={index} >
+            {characterListPage && characterListPage.map((l, id) =>
+                <CardViagem key={id} onClick={() => goToDetailPage(id)}>
                     <h2>Name:{l.name}</h2>
-                    </CardViagem>)}
+                </CardViagem>)}
         </Conteiner>
     )
 }
